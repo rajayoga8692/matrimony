@@ -1,6 +1,5 @@
 "use strict";
- angular.module("VIEWPROFILE-CTRL",[]).controller("viewprofilectrl",function($scope,$http,DataProvider,$routeParams,$window,$route,$rootScope,$timeout,$modal) {
-	 console.log("$routeParams.data"+$routeParams.data);  
+ angular.module("VIEWPROFILE-CTRL",[]).controller("viewprofilectrl",function($scope,$http,DataProvider,$routeParams,$window,$route,$rootScope,$timeout,$modal) {  
  		 $scope.user = JSON.parse($window.localStorage.getItem("user")); 
  		$window.sessionStorage.setItem("user", $window.localStorage.getItem("user"));  
 
@@ -19,21 +18,14 @@
 			 if ( response != null && response.data != null && response.data!="BAD_REQUEST"){
 		            $scope.contactlist = response.data[0];
 	        		$window.sessionStorage.setItem("contact", JSON.stringify(response.data[0]));
-
-	         }else{
 	         }
-		});
-  	     
-  	     
- 	    //  $scope.contactlist = JSON.parse($window.sessionStorage.getItem("contact")); 
+		}); 
  
  		  $scope.promise= $http.post('./rest/profile/viewprofile',$scope.serarchData) 
           .then(function(result) {
          	$scope.moreInfo = result.data;
            }, function(error) {
         	alert("Error"); 
-           }, function(update) {
-        	  console.log('Got notification: ' + update);    
          });   
  		  
        
@@ -57,11 +49,9 @@
 					updatecount:$scope.user.updatecount
  				}
 			}).then(function(response) { 
-				
 				if(response.data.message == "found") {
 					$scope.viewedcount = response.data.updatecount;
   				} else if(response.data.message == "success") { 
-  					
   					$scope.promise= $http.post('./rest/authenticate/getUser/'+$scope.user.id)
 			          .then(function(result) {
 			        		$window.sessionStorage.setItem("user", JSON.stringify(result.data[0]));
@@ -69,14 +59,10 @@
 			        		$scope.viewedcount = response.data.updatecount;
 		 	           }, function(error) {    
 			        	alert("Error"); 
-			           }, function(update) {
-			        	  console.log('Got notification: ' + update);    
 			         });
-  					
 				} else {
 					$scope.viewedcount = response.data.updatecount;    
 				}  
- 				 
 			});   
  	    	
  	    	
@@ -95,7 +81,7 @@
     	  var printContents = document.getElementById(divName).innerHTML;  
     	  var popupWin = window.open('', '_blank', 'width=1000,height=800');
     	  popupWin.document.open();
-    	  popupWin.document.write('<!DOCTYPE html><html><head><link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">	<link rel="stylesheet" href="./assets/css/style.css"><link rel="stylesheet" href="./assets/plugins/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="./assets/css/pages/profile.css"  ><style> @media print { #hideaddress { display: none !important; },#btnIdHidden { display: none !important; } } </style></head><body onload="window.print()">' + printContents + '<script>   //window.onload = function() { var el = document.getElementById("hideaddress"); if (el) el.style.display = "none"; document.getElementById("btnIdHidden").style.display="none"; window.print(); } </script></body></html>');
+    	  popupWin.document.write('<!DOCTYPE html><html><head><link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">	<link rel="stylesheet" href="./assets/css/style.css"><link rel="stylesheet" href="./assets/plugins/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="./assets/css/pages/profile.css"  ><style> @media print { #hideaddress { display: none !important; },#btnIdHidden { display: none !important; } } </style></head><body onload="window.print()">' + printContents + '</body></html>');
     	  popupWin.document.close();
     	  $scope.btnId=true;
 	    	   
@@ -121,24 +107,21 @@
 						viewedby:$scope.user.id,
 						updatecount:$scope.user.updatecount
 					}
-				}).then(function(response) {   
-					if(response.data.message == "found") {
-						$scope.viewedcount = response.data.updatecount;
+			}).then(function(response) {   
+				if(response.data.message == "found") {
+					$scope.viewedcount = response.data.updatecount;
 	  				} else if(response.data.message == "success") { 
 	  					$scope.promise= $http.post('./rest/authenticate/getUser/'+$scope.user.id)
 				          .then(function(result) {
 				        		$window.sessionStorage.setItem("user", JSON.stringify(result.data[0]));
-				        		//$window.location.reload();
 				        		$scope.viewedcount = response.data.updatecount;  
 			 	           }, function(error) {    
 				        	alert("Error"); 
-				           }, function(update) {
-				        	  console.log('Got notification: ' + update);    
 				         });
  					} else { 
 						$scope.viewedcount = response.data.updatecount;    
 					}     
-				});   
+				});
  			}
  			memberRequestModalInstance = $modal.open({  
  				templateUrl : './app/views/modal/address.html',  

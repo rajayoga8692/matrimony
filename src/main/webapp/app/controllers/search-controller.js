@@ -33,9 +33,7 @@
 	     	$scope.moreInfo = result.data;
 	       }, function(error) {
 	    	alert("Error"); 
-	       }, function(update) {
-	    	  console.log('Got notification: ' + update);    
-	     });   
+	       });   
  	  }
  	 $scope.slides=[];
  	
@@ -59,10 +57,6 @@
 
 	 $('#myCarousel').carousel({
 			interval: 10000
-	})
-		    
-    $('#myCarousel').on('slid.bs.carousel', function() {
-    	//alert("slid");
 	});
 		      
 	 $scope.serarchData={gender:$scope.gender,memberid:'',agefrom:18,ageto:50,subcaste:'',star:'',rasi:'',education:'',merital:'',wplace:'',jobtype:'',country:'',jobsector:''}
@@ -151,15 +145,12 @@
 				 $scope.serarchData.rasi='';
 			 }
 			 
-	  $scope.serarchData.star=$scope.serarchData.star.value;
-	  $scope.serarchData.rasi= $scope.serarchData.rasi.value;
-	  $scope.serarchData.education= $scope.serarchData.education.value;
-	  $scope.serarchData.merital= $scope.serarchData.merital.value;
-	  $scope.serarchData.jobtype= $scope.serarchData.jobtype.value;
-	  //$scope.serarchData.height1=$scope.serarchData.height1.value;
-	  //$scope.serarchData.height2=$scope.serarchData.height2.value;
-	  $scope.serarchData.jobsector=$scope.serarchData.jobsector.value;
-	 // $scope.serarchData.country=$scope.serarchData.country.value;
+        	  $scope.serarchData.star=$scope.serarchData.star.value;
+		  $scope.serarchData.rasi= $scope.serarchData.rasi.value;
+		  $scope.serarchData.education= $scope.serarchData.education.value;
+		  $scope.serarchData.merital= $scope.serarchData.merital.value;
+		  $scope.serarchData.jobtype= $scope.serarchData.jobtype.value;
+		  $scope.serarchData.jobsector=$scope.serarchData.jobsector.value;
 	  	if($scope.tab==1) {
 		      if($scope.serarchData.memberid!='' && $scope.serarchData.memberid!=undefined){ 
 		    	  $scope.serarchData.agefrom='';
@@ -214,11 +205,7 @@
 	      }
 	     if($scope.serarchData.residence =='0'){
 	    	  $scope.serarchData.residence ='';
-	      } 
-	      /*if($scope.serarchData.monthlyincome=='0'){   
-	    	  $scope.serarchData.monthlyincome='';
 	      }
-	   */
 	     if($scope.user.gender=='ஆண்'){
 	    	 	$scope.serarchData.gender='பெண்';
 			} else {
@@ -254,18 +241,13 @@
  	 
  	  else {
  		  $scope.searchResult =[];
- 		 $scope.nodata =true;    
-		  $scope.fulldetails=false;
+	       	 $scope.nodata =true;    
+	 		  $scope.fulldetails=false;
 
  	  }
-	   //  $scope.serarchData={gender:'ஆண்',memberid:'',agefrom:18,ageto:25,subcaste:'',star:'',rasi:'',education:'',merital:'',wplace:'',height1:'',height2:'',jobtype:'',jobsector:'',country:''}
 
    },function(error) {
  	alert(" Alert Error"); 
-    
-   
-   }, function(update) {
- 	  console.log('Got notification: ' + update);
   });
 
 	  $scope.back=function()
@@ -283,15 +265,12 @@
 				 $scope.fulldetails=true; 
 				 $scope.nonfulldetails=false;
 				 
- 		  $scope.serarchData.star=$scope.serarchData.star.value;
-		  $scope.serarchData.rasi= $scope.serarchData.rasi.value;
-		  $scope.serarchData.education= $scope.serarchData.education.value;
-		  $scope.serarchData.merital= $scope.serarchData.merital.value;
-		  $scope.serarchData.jobtype= $scope.serarchData.jobtype.value;
-		  //$scope.serarchData.height1=$scope.serarchData.height1.value;
-		  //$scope.serarchData.height2=$scope.serarchData.height2.value;
-		  $scope.serarchData.jobsector=$scope.serarchData.jobsector.value;
-		 // $scope.serarchData.country=$scope.serarchData.country.value;
+	 $scope.serarchData.star=$scope.serarchData.star.value;
+	  $scope.serarchData.rasi= $scope.serarchData.rasi.value;
+	  $scope.serarchData.education= $scope.serarchData.education.value;
+	  $scope.serarchData.merital= $scope.serarchData.merital.value;
+	  $scope.serarchData.jobtype= $scope.serarchData.jobtype.value;
+	  $scope.serarchData.jobsector=$scope.serarchData.jobsector.value;
 		  	if($scope.tab==1) {
 	 		      if($scope.serarchData.memberid!='' && $scope.serarchData.memberid!=undefined){ 
 			    	  $scope.serarchData.agefrom='';
@@ -341,17 +320,13 @@
 		    if($scope.serarchData.country =='0'){
 		    	  $scope.serarchData.country ='';
 		      }
-		     if($scope.serarchData.jobsector =='0'){
-		    	  $scope.serarchData.jobsector ='';
-		      }
-		     if($scope.serarchData.residence =='0'){
-		    	  $scope.serarchData.residence ='';
-		      } 
-		      /*if($scope.serarchData.monthlyincome=='0'){   
-		    	  $scope.serarchData.monthlyincome='';
-		      }
-		   */
-		  $scope.promise= $http.post('./rest/profile/search',$scope.serarchData) 
+	     if($scope.serarchData.jobsector =='0'){
+	    	  $scope.serarchData.jobsector ='';
+	      }
+	     if($scope.serarchData.residence =='0'){
+	    	  $scope.serarchData.residence ='';
+	      }
+	  $scope.promise= $http.post('./rest/profile/search',$scope.serarchData)
           .then(function(result) {
             // save fetched posts to the local variable
         	  $scope.nonfulldetails=false; 
@@ -377,24 +352,15 @@
         			   
         			 //....................pagination end...
         	  }
-        	  /*else if(result.data=="NOT_ACCEPTABLE") 
-        	  		{
-        		  bootbox.alert("result :NOT_ACCEPTABLE "); 
-        	  		}*/
-        	  		
         	  else {
         		  $scope.searchResult =[];
         	 		 $scope.nodata =true;    
         			  $scope.fulldetails=false;
         	  }
-       	     $scope.serarchData={gender:'ஆண்',memberid:'',agefrom:18,ageto:50,subcaste:'',star:'',rasi:'',education:'',merital:'',wplace:'',height1:'',height2:'',jobtype:'',jobsector:'',country:''}
+
 
           },function(error) {
         	alert(" Alert Error"); 
-           
-          
-          }, function(update) {
-        	  console.log('Got notification: ' + update);
          });
 
 		  $scope.back=function()

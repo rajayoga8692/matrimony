@@ -42,27 +42,23 @@
 	         }
 	     });
 		 
-		 if($scope.loginform.$valid){
-			  //var deferred = $q.defer();
-		        
-		        // get posts form backend
-		 $scope.promise= $http.post('./rest/authenticate',$scope.authen)
+	 if($scope.loginform.$valid){
+	 $scope.promise= $http.post('./rest/authenticate',$scope.authen)
 		          .then(function(result) {
 		        	 
 		        	
-		        	if (result.data == "NOT_ACCEPTABLE"){
-		        		$scope.invalid = 'உங்கள் பயனர் பெயர (அல்லது) உறுப்பினர் அடையாள எண்  (அல்லது) கடவுச்சொல்லை தவறானது / Invalid Username or member Id or password';
-		        	}else{
-		        		$window.sessionStorage.setItem("user", JSON.stringify(result.data[0]));
-		        		$scope.invalid ="";
-		        		var _path = "/admin";
-		        			
-		        			if(result.data[0].role  == "user" )
-		        				_path ="/profile";
-		        		
-		        			console.log("printa data values00000000 "+_path  +"--- 0"+result.data);
-		        			$location.path(_path);
-		        	}
+	        	if (result.data == "NOT_ACCEPTABLE"){
+	        		$scope.invalid = 'உங்கள் பயனர் பெயர (அல்லது) உறுப்பினர் அடையாள எண்  (அல்லது) கடவுச்சொல்லை தவறானது / Invalid Username or member Id or password';
+	        	}else{
+	        		$window.sessionStorage.setItem("user", JSON.stringify(result.data[0]));
+	        		$scope.invalid ="";
+	        		var _path = "/admin";
+	        			
+	        			if(result.data[0].role  == "user" )
+	        				_path ="/profile";
+	        		
+	        			$location.path(_path);
+	        	}
 		        	 
 		          }, function(error) {
 		         });
