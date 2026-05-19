@@ -1,0 +1,150 @@
+<!--=== Footer Version 1 ===-->
+		<div class="footer-v1"  ng-controller="menuctrl">
+			<div class="footer">
+				<div class="container">
+					<div class="row">
+						<!-- About -->
+						<div class="col-md-4 md-margin-bottom-40">
+							<a href="#/"><img id="logo-footer" class="footer-logo" src="assets/img/santhiyalogo.png" alt="" style="width:270px"></a>
+							<!-- <p>Since 2011 for past Four years we are running this Reddiar Marriage Links for sake of our Reddiar Community well-being. As a full time service rendered to our society.</p>
+							<p> There by we hold goodwill and reputation from our society people so far at about 1000 marriages has been arranged by this service centre. Everybody enjoyed our good service and happy for the beneficial of our society here we opened this website.</p> -->
+				
+                             <div class="panel-heading">
+                                <h3 class="panel-title"></h3>
+                            </div>
+                            <table class="table table-striped" ng-repeat="totalcount in totalcount" style="width: 75%;">
+                                <thead   style="background-color: lightyellow;">
+                                    <tr>
+                                        <th>Total Users</th>
+                                        <th>Male</th> 
+                                        <th>Female</th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                    <tr>
+                                        <td>{{totalcount.totalcount}}</td>
+                                        <td>{{totalcount.malecount}}</td>
+                                        <td>{{totalcount.femalecount}}</td>
+                                    </tr> 
+                                 </tbody>
+                            </table>
+  				
+				<!-- 	<a href="https://info.flagcounter.com/p0RU"><img src="https://s11.flagcounter.com/count2/p0RU/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a> -->
+
+						</div><!--/col-md-3-->
+						<!-- End About -->
+
+						<!-- Latest -->
+						<!--<div class="col-md-3 md-margin-bottom-40">
+							<div class="posts">
+								<div class="headline"><h2>Latest Posts</h2></div>
+								<ul class="list-unstyled latest-list">
+									<li>
+										<a href="#">Incredible content</a>
+										<small>May 8, 2014</small>
+									</li>
+									<li>
+										<a href="#">Best shoots</a>
+										<small>June 23, 2014</small>
+									</li>
+									<li>
+										<a href="#">New Terms and Conditions</a>
+										<small>September 15, 2014</small>
+									</li>
+								</ul>
+							</div>
+						</div><!--/col-md-3-->
+						<!-- End Latest -->
+
+						<!-- Link List -->
+						<div class="col-md-4 md-margin-bottom-40">
+							<div class="headline"><h2>Useful Links</h2></div>
+							<ul class="list-unstyled link-list" ng-if="role=='dashboard' || role=='admin'">
+								<li><a href="#/">எங்களை பற்றி / About us</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="#/registration">பதிவு / Registration</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="#/search">தேடல் / Search</a><i class="fa fa-angle-right"></i></li>
+								<li><a ng-href="#/plan">கட்டணத் திட்டம் / Payment Plan</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="#/login">உள் நுழை / Login</a><i class="fa fa-angle-right"></i></li>
+							</ul>
+							<ul class="list-unstyled link-list"   ng-if="role=='user'">
+ 		 						<li><a href="#/profile"  >சுயவிவரம் / Profile</a><i class="fa fa-angle-right"></i></li>
+		 						<li><a href="#/usersearch"  >தேடல் / Search</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="#/userplan"  >கட்டணத் திட்டம் / Payment Plan</a><i class="fa fa-angle-right"></i></li>
+		   						<li><a href="" ng-click="logout()"  >பதிவு / Logout</a><i class="fa fa-angle-right"></i></li>
+								
+							</ul>
+						</div><!--/col-md-3-->
+						<!-- End Link List -->
+
+						<!-- Address -->
+						<div class="col-md-4 map-img md-margin-bottom-40"  > 
+							<div class="headline"><h2>Contact Us</h2></div>   
+							<address class="md-margin-bottom-40">
+								{{contactlist.name}}<br />
+								{{contactlist.address}} <br />
+ 								{{contactlist.city}} - {{contactlist.pincode}}.<br/>
+								Phone: {{contactlist.phoneno}}<br />
+ 								Email: <a href="mailto:contactlist.emailid" class="">{{contactlist.emailid}}</a> 
+							</address>
+						</div><!--/col-md-3-->
+						<!-- End Address -->
+					</div>
+				</div>
+			</div><!--/footer-->
+
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<p>
+								2018 &copy;  All rights reserved. Powered by.<a href="http://www.sandhiyamatrimony.com/" >www.sandhiyamatrimony.com</a>
+
+							</p>
+						</div>
+ 
+						<!-- Social Links -->
+						<div class="col-md-6" style="text-align: right;">
+							<ul class="footer-socials list-inline">
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
+										<i class="fa fa-skype"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+										<i class="fa fa-google-plus"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+										<i class="fa fa-linkedin"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
+										<i class="fa fa-pinterest"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
+										<i class="fa fa-dribbble"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<!-- End Social Links -->
+					</div>
+				</div>
+			</div><!--/copyright-->
+		</div>
+		<!--=== End Footer Version 1 ===-->

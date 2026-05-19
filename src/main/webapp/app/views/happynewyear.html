@@ -1,0 +1,315 @@
+<div ng-controller="newyearcontroller" >
+
+
+<style>
+.w3ls-banner{  
+	background:url(./images/{{image}}.jpg)no-repeat right 0px;
+	-webkit-background-size:cover;
+	-moz-background-size:cover; 
+	background-size:cover;
+	position: relative;  
+	
+}   
+
+.jarallax {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+/*-- banner-text --*/ 
+.banner-text {
+    text-align: center;
+    padding: 16em 0 9em;
+	background: rgba(0, 0, 0, 0.61);
+}
+.banner-text h2{
+    color: #fff;
+    font-size: 6em; 
+}
+.banner-text h3{
+    color: #fff;
+    font-size: 3em;  
+} 
+ 
+.banner-text p {
+    width: 51%;
+    color: #fff;
+    margin: 1em auto 2em;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 2em;
+    letter-spacing: 5px;
+} 
+/*-- timer --*/  
+.clock {
+    display: inline-table;
+} 
+.clock .column {
+    padding: 8px 20px;
+    float: left;
+    background: none;
+    border: 7px #57505d;
+    border-style: double;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+.timer {
+    font-size: 2em;
+    display: inline-block;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Trochut', cursive;
+}
+.text {
+    font-size: .9em;
+    color: #fff;
+    margin-bottom: 0.4em;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+/*-- //timer -- */
+/*-- bth-hover --*/ 
+.wthree-btn {
+    position: relative;
+    display: inline-block;
+    margin: 3em auto 0;
+    overflow: hidden;
+    border: 1px solid #fff ;
+    padding: .7em 1.5em;
+    color: #fff;
+    z-index: 9;
+    font-size: 1.3em;
+    outline: none;
+    font-family: 'Trochut', cursive;
+    letter-spacing: 1px;
+}
+.wthree-btn:focus{
+	color: #fff;
+	text-decoration:none;
+	outline: none;
+}
+.margintop{
+		margin-top: 100px
+		}
+/*-- deals-effect --*/
+@-webkit-keyframes criss-cross-left {
+  0% {
+    left: -20px;
+  }
+  50% {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    left: 50%;
+    width: 375px;
+    height: 375px;
+  }
+}
+
+@keyframes criss-cross-left {
+  0% {
+    left: -20px;
+  }
+  50% {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    left: 50%;
+    width: 375px;
+    height: 375px;
+  }
+}
+@-webkit-keyframes criss-cross-right {
+  0% {
+    right: -20px;
+  }
+  50% {
+    right: 50%;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    right: 50%;
+    width: 375px;
+    height: 375px;
+  }
+}
+@keyframes criss-cross-right {
+  0% {
+    right: -20px;
+  }
+  50% {
+    right: 50%;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    right: 50%;
+    width: 375px;
+    height: 375px;
+  }
+} 
+ 
+ @media(max-width:767px){.banner-text h2{
+		    color: #fff;
+		    font-size: 3em;    
+		}
+		.margintop{
+		margin-top: 50px
+		}
+		.clock .column {
+		    padding: 2px 7px;
+		    float: left;
+		    background: none;
+		    border: 7px #57505d;
+		    border-style: double;
+		    text-align: center;
+		    transition: all 0.2s ease-in-out;
+		    -moz-transition: all 0.2s ease-in-out;
+		    -webkit-transition: all 0.2s ease-in-out;
+		    -o-transition: all 0.2s ease-in-out;
+		}
+		
+	}
+@media(min-width:768px){.banner-text h2{
+		    color: #fff;
+		    font-size: 4em;    
+		}}
+@media(min-width:992px){.banner-text h2{
+		    color: #fff; 
+		    font-size: 6em;    
+		}}
+@media(min-width:1200px){}
+   
+     
+</style>
+<div id=" content">
+
+<div id="home" class="w3ls-banner w3-agilefireworks jarallax" style="height:670px "> 
+		<!-- header -->
+		 <!-- //header -->
+		<!-- banner-text -->    
+		<div class="banner-text" style="height: inherit;">  
+			<h3 style="  text-transform: uppercase;">{{name}} Wishes to</h3> <br>
+			<h2>Happy New Year</h2> 
+ 			<!-- timer -->      
+			<!-- <div class="agileits-timer margintop" > 
+				<div class="clock">
+					<div class="column days">
+						<div class="timer" id="days"></div> 
+						<div class="text">Days</div>
+					</div>
+					<div class="timer days"></div>
+					<div class="column">
+						<div class="timer" id="hours"></div>
+						<div class="text">Hours</div>
+					</div>
+					<div class="timer"></div>
+					<div class="column">
+						<div class="timer" id="minutes"></div>
+						<div class="text">Minutes</div>
+					</div>
+					<div class="timer"></div>
+					<div class="column">
+						<div class="timer" id="seconds"></div>
+						<div class="text">Seconds</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>	 
+			</div> -->
+			<!-- //timer --> 
+ 		</div> 
+		<!-- //banner-text -->   
+	</div>
+	</div>  	
+<script type="text/javascript" src="js/jquery.fireworks.js"></script>
+	<script>	
+		setTimeout(function() {
+			$('.w3-agilefireworks').fireworks();   
+		});
+	</script>
+  <script src="js/jarallax.js"></script>
+    	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed: 0.5,
+			imgWidth: 1366,
+			imgHeight: 768
+		})
+	</script>
+	<script type="text/javascript" src=" js/moment.js"></script>
+	<script type="text/javascript" src=" js/moment-timezone-with-data.js"></script>
+	  
+    <script>
+  $(function(){
+
+ /*  function timer(settings){
+      var config = {  
+          endDate: '2050-12-31 11:59',
+          timeZone: 'Europe/Dublin',
+          hours: $('#hours'),
+          minutes: $('#minutes'),
+          seconds: $('#seconds'),
+          newSubMessage: 'and should be back online in a few minutes...'
+      };
+      function prependZero(number){
+          return number < 10 ? '0' + number : number;
+      }
+      $.extend(true, config, settings || {});
+      var currentTime = moment();
+      var endDate = moment.tz(config.endDate, config.timeZone);
+      var diffTime = endDate.valueOf() - currentTime.valueOf();
+      var duration = moment.duration(diffTime, 'milliseconds');
+      var days = duration.days();
+      var interval = 1000;
+      var subMessage = $('.sub-message');
+      var clock = $('.clock');
+      if(diffTime < 0){
+          endEvent(subMessage, config.newSubMessage, clock);
+          return;
+      }
+      if(days > 0){
+          $('#days').text(prependZero(days));
+          $('.days').css('display', 'inline-block');
+      }
+      var intervalID = setInterval(function(){
+          duration = moment.duration(duration - interval, 'milliseconds');
+          var hours = duration.hours(),
+              minutes = duration.minutes(),
+              seconds = duration.seconds();
+          days = duration.days();
+          if(hours  <= 0 && minutes <= 0 && seconds  <= 0 && days <= 0){
+              clearInterval(intervalID);
+              endEvent(subMessage, config.newSubMessage, clock);
+              window.location.reload();
+          }
+          if(days === 0){
+              $('.days').hide();
+          }
+          $('#days').text(prependZero(days));
+          config.hours.text(prependZero(hours));
+          config.minutes.text(prependZero(minutes));
+          config.seconds.text(prependZero(seconds));
+      }, interval);
+  }
+  function endEvent($el, newText, hideEl){
+      $el.text(newText);
+      hideEl.hide();
+  }
+  timer();*/    
+  }); 
+ 
+    
+  </script>  
+  
+  </div>
+  

@@ -1,0 +1,114 @@
+<link href="./assets/css/pages/pricing/pricing_v1.css" rel="stylesheet">
+<link href="./assets/css/pages/pricing/pricing_v2.css" rel="stylesheet">
+<link href="./assets/css/pages/pricing/pricing_v3.css" rel="stylesheet">
+<link href="./assets/css/pages/pricing/pricing_v4.css" rel="stylesheet">
+<link href="./assets/css/pages/pricing/pricing_v5.css" rel="stylesheet">
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left">
+			<span>₹</span> கட்டணத் திட்டம் / Payment Plan
+		</h1>
+	</div>
+</div>
+
+<div ng-controller="planctrl">
+
+	<div class="container content">
+		<div class="row pricing-table-v1 no-space-pricing">
+
+			<div class="col-md-3 col-sm-3 col-xs-6"
+				ng-repeat="planlist in planlist">
+				<div class="pricing-v1 pricing-v1-green">
+					<div class="pricing-v1-head text-center">
+						<h4>{{planlist.planname}}</h4>
+						<h5>
+							<span>₹</span>{{planlist.amount}}<i></i>
+						</h5>
+					</div>
+					<ul class="list-unstyled pricing-v1-content">
+						<li><i class="fa fa-check-circle-o"></i>{{planlist.contacts}} Verfied Contacts</li>
+						<li><i class="fa fa-check-circle-o"></i>{{planlist.validitydays}} Months</li>
+						<li><i class="fa fa-check-circle-o"></i>Online Support</li>
+ 
+					</ul>
+ 				</div>
+			</div> 
+		  
+		 
+		<div class="col-md-4 shadow-wrapper" ng-repeat="banklist in banklist">
+			<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+				<div class=" ">
+					<img src="./OpenFile?r1=serverpath&r2={{banklist.imagepath}}" style=" width: 240px; height: 150px; " ><br>  
+					<br>
+				</div>
+				<div class=" "> 
+					<label style="width: 140px;">Account Number</label> :
+					{{banklist.accountnumber}} <br> <label style="width: 140px;">Account
+						Holder Name</label> : {{banklist.holdername}} <br> <label
+						style="width: 140px;">Branch</label> : {{banklist.branchname}} <br>
+					<label style="width: 140px;">Branch Code</label> :
+					{{banklist.branchcode}}<br> <label style="width: 140px;">IFSC
+						Code</label> : {{banklist.ifsccode}} <br>
+					<hr>
+					<label style="width: 220px;">வங்கியின் கணக்கு எண்</label>
+					:{{banklist.accountnumber}} <br> <label style="width: 220px;">வங்கி
+						கணக்கு பெயர்</label> : {{banklist.holdername}} <br> <label
+						style="width: 220px;">வங்கியின் கிளை</label> :
+					{{banklist.branchname}} <br> <label style="width: 220px;">வங்கியின்
+						கிளையின் கோடு</label> : {{banklist.branchcode}}<br> <label
+						style="width: 220px;">IFSC Code</label> : {{banklist.ifsccode}} <br>
+  				</div>
+ 			</div>
+		</div>
+	 
+		</div>
+		
+		<div class="row">
+		
+		<div class="col-md-6 shadow-wrapper"  >
+			<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+				<div class="">
+					<img src="./assets/img/phonepe.jpeg" style=" width: 450px; " ><br>  
+					<br>
+				</div>
+  			</div>
+		</div>
+		 
+		<div class="col-md-6 shadow-wrapper"  >
+			<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+				<div class="col-md-offset-2">
+					<img src="./assets/img/googlepay.png" style=" width: 350px; height: 150px; " ><br>  
+					<br>
+				</div>
+				<div class="col-md-offset-2"> 
+					<label style="width: 140px;">Google Pay Number</label> :
+					8883899009<br> 
+   				</div>
+ 			</div>
+		</div>
+		</div> 
+  		<center>
+			<p>பணமாகவே அல்லது இணைய பணபரிமாற்றம் மூலமாகவே பணம் செலுத்தலாம்.
+				பணம் செலுத்தியா பின் தொலைபேசி மூலம் பணம் செலுத்திய கிளையின் பெயர்
+				அல்லது பணபரிமாற்றத்தின் தெளிவுரை எண்ணை(reference number) எங்களுக்கு
+				தெரியபடுத்தவும்</p>
+			<b>மணியாடராக பணம் அனுப்ப கீழ்கண்ட முகவரிக்குஅனுப்பவும்</b>  
+		</center>
+ 		<br>
+		<div class="col-md-6 tag-box tag-box-v6 col-md-offset-3">
+			<h2>
+				<center>{{contactlist.name}}</center>
+			</h2>
+			<center>
+				{{contactlist.address}}
+				{{contactlist.city}}. {{contactlist.pincode}}. <br>
+				<br>அல்லது<br> அழையுங்கள்<br> <span
+					class="label label-primary">{{contactlist.phoneno}}</span> <span
+					class="label label-success">{{contactlist.emailid}}</span>
+			</center>
+		</div>  
+	</div>
+
+</div>
+
+ 

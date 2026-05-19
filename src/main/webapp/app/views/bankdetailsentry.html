@@ -1,0 +1,117 @@
+
+<link rel="stylesheet" href="./assets/css/sky-forms.css">
+<link rel="stylesheet" href="./assets/css/custom-sky-forms.css">
+
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left">Bank Details</h1>
+<a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+	</div>
+</div>
+
+<!-- Left Bordered Funny Boxes --> 
+<div class="container content-sm" ng-controller="bankdetailsctrl">
+	<form novalidate="novalidate" id="sky-form1" class="sky-form">
+	    <header style="color:#666">Bank details entry</header>
+	
+		<fieldset>
+			<div class="row">
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-user"></i>
+						<input type="text" ng-model="bankname"  value={{bankname}} placeholder="Bank name">
+					</label>
+				</section>
+				<section class="col col-6">
+					<label class="input"> <i
+						class="icon-append fa fa-briefcase"></i> <input type="text"
+						ng-model="accountnumber"  value={{accountnumber}} placeholder="Account number">
+					</label>
+				</section>
+			</div>
+
+			<div class="row">
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-envelope"></i>
+						<input type="text" ng-model="holdername"  value={{holdername}} placeholder="Holdername">
+					</label>
+				</section>
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-envelope"></i>
+						<input type="text" ng-model="branchname"  value={{branchname}} placeholder="Branch name">
+					</label>
+				</section>
+			</div>
+			<div class="row">
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-envelope"></i>
+						<input type="text" ng-model="branchcode"  value={{branchcode}} placeholder="Branch code">
+					</label>
+				</section>
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-envelope"></i>
+						<input type="text" ng-model="ifsccode"  value={{ifsccode}} placeholder="IFSC code"> 
+					</label>
+				</section>
+			</div>
+			<div class="row">
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-envelope"></i>
+						<input type="file" id="imageFile" onchange="angular.element(this).scope().setFile(this)" value={{imagepath}} ng-model="imagepath" placeholder="Bank image">
+					</label>
+				</section>
+ 			</div>
+		</fieldset>
+	<footer>
+ 		<div ng-show="sub">
+			<button type="submit" class="btn-u" ng-click="saveBankdetails()">Submit</button>
+ 		</div>
+ 		<div ng-show="update">
+			<button type="submit" class="btn-u" value={{bankdetailsid}} ng-click="updateBankInfo()">Update</button>
+ 		</div>
+ 	</footer>		
+   	</form>
+  		<br>
+		<div class="row">
+			<div class="  panel panel-red margin-bottom-40">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-user"></i> Bank Details Info
+					</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Bank Name</th>
+								<th>Account number</th>
+								<th>Holder name</th>
+								<th>Branch Name</th>
+								<th>Branch Code</th> 
+								<th>Ifsc Code</th>
+								<th>Edit</th> 
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="bankdetailslist in bankdetailslist">
+								<td>{{$index+1}}</td>
+								<td>{{bankdetailslist.bankname}}</td>
+								<td>{{bankdetailslist.accountnumber}}</td>
+								<td>{{bankdetailslist.holdername}}</td>
+								<td>{{bankdetailslist.branchname}}</td>
+								<td>{{bankdetailslist.branchcode}}</td>
+								<td>{{bankdetailslist.ifsccode}}</td>
+								<td><i class="icon-custom icon-sm icon-bg-u fa fa-pencil" ng-click="editBankinfo(bankdetailslist)"></i></td>
+								<td><i class="icon-custom icon-sm icon-bg-red fa fa-trash-o" aria-hidden="true"
+									ng-click="deleteBankInfo(bankdetailslist)"></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div> 
+
+	<!-- End Left Bordered Funny Boxes -->
+</div>
+<!--/container-->

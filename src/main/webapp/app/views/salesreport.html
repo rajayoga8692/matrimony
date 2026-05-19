@@ -1,0 +1,110 @@
+ <link href="./assets/css/sky-forms.css" rel="stylesheet">
+ <link href="./assets/css/custom-sky-forms.css" rel="stylesheet">
+
+<style>
+     .rasi{
+	     font-style: italic;
+	    color: coral;
+	    padding-right:40px;
+    }
+     .tbl {
+		    
+		    height: 80px;
+		    width: 115px;
+		    text-align:center
+    }
+ </style>
+<div ng-controller="reportctrl">
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left"><i class="fa fa-user"></i> Welcome, {{user.name}}</h1>
+	     <a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+ 	</div>
+</div>
+<div class="container content" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+		 <form  id="sky-form" class="sky-form margin-bottom-40"> 
+		 <fieldset>   
+					<div class="row">     
+                                        <section class="col col-4">
+                                            <label class="input">
+                                                <i class="icon-append fa fa-calendar"></i>
+                                                <input type="text" name="start" id="start" placeholder="Start date">
+                                            </label>
+                                        </section>
+                                        <section class="col col-4">   
+                                            <label class="input">
+                                                <i class="icon-append fa fa-calendar"></i>
+                                                <input type="text" name="finish" id="finish" placeholder="Expected finish date">
+                                            </label>
+                                        </section>
+                                        <section class="col col-2">
+                                           <button  class="btn-u" ng-click="getReport()">Get</button>
+                                        </section>
+                                    </div>  
+                                    </fieldset>   
+ 			 </form>
+		  
+		<div class="row" >
+					<!--Basic Table-->
+					<div class="panel panel-green margin-top-20 margin-bottom-40">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="fa fa-tasks"></i>Sales Report</h3>
+						</div>  
+			 			  
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Sl.No.</th>
+									<th>Name</th>
+ 									<th>Registration ID</th>
+									<th>Registration Number</th>
+ 									<th>Amount(Rs.)</th>
+ 									<th>Plan name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="pd in salesreportlist">
+									<td>{{$index+1}}</td>
+									<td>{{pd.name}}</td>
+ 									<td>{{pd.registerid}}</td>  
+									<td>{{pd.registerno}}</td>
+									<td>{{pd.planname}}</td>
+									<td>{{pd.amount}}</td>   
+  								</tr>   
+  								<tr>
+  									<td colspan='4'></td>
+  									<td > <b>Total :</b> </td>
+  									<td><b>{{total()}}</b></td>
+  								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--End Basic Table-->
+</div>
+ </div>
+</div>  
+<script src="js/jquery-ui.min.js"></script>
+
+<script> 
+
+$('#start').datepicker({
+    dateFormat: 'dd-mm-yy',
+    prevText: '<i class="fa fa-angle-left"></i>',
+    nextText: '<i class="fa fa-angle-right"></i>',
+    onSelect: function( selectedDate )
+    {
+        $('#finish').datepicker('option', 'minDate', selectedDate);
+    }
+});
+$('#finish').datepicker({
+    dateFormat: 'dd-mm-yy',   
+    prevText: '<i class="fa fa-angle-left"></i>',
+    nextText: '<i class="fa fa-angle-right"></i>',
+    onSelect: function( selectedDate )
+    {
+        $('#start').datepicker('option', 'maxDate', selectedDate);
+    }
+});
+
+
+</script>  

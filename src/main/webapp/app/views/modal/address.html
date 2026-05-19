@@ -1,0 +1,80 @@
+<link href="./assets/css/sky-forms.css" rel="stylesheet">
+<link href="./assets/css/custom-sky-forms.css" rel="stylesheet"> 
+ 
+ 
+   <style>
+    @media print {
+    body * {
+        visibility: hidden;
+    }
+    #print-content * {
+        visibility: visible;
+    }
+    .modal{
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        min-height:550px
+    }
+}
+    
+    </style>
+    <div id="print-content">   
+    
+<div ng-controller="viewprofilectrl">
+ <form   class="sky-form">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="ok()"  data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel4">{{user.name}} in Contact Details</h4>
+ 
+ 				    
+			</div> 
+			<div class="modal-body" ng-repeat="moreInfo in moreInfo">
+				<div class="row">  
+					<div class="col-md-12">   
+                          <div class="row">
+                            <section class="col col-6">
+                             <label class="label">முகவரி </label>
+                            <label for="file" class="input input-file">
+									{{moreInfo.addressone}}
+                            </label>
+                        </section>   
+                          <section class="col col-6">
+                            <label class="label">மாவட்டம் </label> 
+                            <label for="file" class="input input-file">
+									{{moreInfo.city}}
+                            </label>
+                        </section>
+                        </div>
+                         <div class="row">
+                         <section class="col col-6">
+                             <label class="label">தொலைபேசி எண் </label>
+                            <label for="file" class="input input-file">
+									{{moreInfo.contactno}}
+                            </label>
+                        </section>
+                          <section class="col col-6">
+                             <label class="label">மொபைல் எண் </label>
+                            <label for="file" class="input input-file">
+									{{moreInfo.mobileno}}
+                            </label>
+                        </section>
+                        </div>  
+					</div> 
+ 				</div> 
+			</div>  
+			<div class="col-xs-12 col-sm-12 col-md-12 text-center" style="padding: 10px;">
+				<span style="font-size: 2em;text-shadow: 2px 1px 2px #009900;">நீங்கள் இன்னும் <b>{{viewedcount}}</b> வரன்களின் தொலை பேசி எண்களை பார்க்கலாம்.</span>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn-u btn-u-default"
+					data-dismiss="modal" ng-click="ok()" >Close</button> 
+				<button type="button" class="btn-u btn-u-primary" ng-click="modalPrint(moreInfo)" >Print
+					</button>
+			</div>
+  </form>   
+  </div>
+ </div> 

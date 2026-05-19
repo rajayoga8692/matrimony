@@ -1,0 +1,242 @@
+  <div ng-controller="searchctrl" id="printDiv"> 
+<style>  
+ @media print {
+tr.vendorListHeading {
+    background-color: #A52A2A !important;
+    -webkit-print-color-adjust: exact; 
+    
+ }
+ p{   
+  color: rgba(0, 0, 0, 0)!important ;;    
+ }   
+ }
+ 
+</style>  
+
+<div align="center" style="margin: 10px;">
+	<table style="border-collapse: collapse" width="869" height="75" cellpadding="5" border="0">
+		<tbody><tr>
+			<td rowspan="3" width="115" height="75">
+			<p align="center">
+			<img src="assets/img/santhiyalogo.png" width="167" height="63" border="0"><br>
+			
+			</p></td>
+			<td width="679" height="24">
+			<p align="center">
+			<span style="color: rgb(136, 136, 136); font-family: 'Open Sans', sans-serif; font-style: normal; font-variant: normal; font-weight: 700; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; ">
+			<font size="5">{{contactlist.name}}</font></span></p></td>
+		</tr> 
+		<tr>
+			<td width="679" height="24">
+			<p align="center">
+			<span style="color: rgb(136, 136, 136); font-family: 'Open Sans', sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 700; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;" >
+			{{contactlist.address}} {{contactlist.city}}.
+						{{contactlist.pincode}}</span></p></td>
+		</tr>
+		<tr>
+			<td width="677" height="24">
+			<p align="center">
+			<span style="color: rgb(136, 136, 136); font-family: 'Open Sans', sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 700; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; ">
+			போன்: {{contactlist.phoneno}} , {{contactlist.emailid}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			www.sandhiyamatrimony.com.com</span></p></td>
+		</tr>
+	</tbody></table>
+</div>
+        <!-- Page Title -->
+
+<!-- Portfolio -->
+<div class="portfolio-container" align="center"  ng-repeat="moreInfo in moreInfo" >
+	<form action="#" method="post" name="form_registration" class="style27" id="form-registration" enctype="multipart/form-data">
+		<div align="center">
+			<table width="999" height="0" cellspacing="1" cellpadding="1">
+			<tr class="vendorListHeading">   
+   					<td colspan="7"  align="right" style="text-align:left;background-color:#A52A2A;color:#ffffff;height:24px;font-size:12px;font-weight:bold;padding-left:5px; border-top-left-radius:12px; border-top-right-radius:12px;" width="447" height="29">
+						<p align="right" style=" color: #ffffff !important;"> www.sandhiyamatrimony.com முக்குலத்தோருக்கு சமூகத்திற்க்கு மட்டும்  </p>  
+					 </td>
+  				</tr>   
+			</table>
+			<table id="content" style="border: 1px solid #A52A2A; box-shadow: 1px 4px 5px #ffffff; border-radius: 12px; border-style: solid;   padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px" width="999" height="0" cellspacing="1" cellpadding="1" border="0">
+				 
+				<tbody>  
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+					<td width="114" height="29">பெயர்</td>
+					<td width="184" height="29">{{moreInfo.name}}</td>
+					<td width="140" height="29">பதிவு எண்</td>
+					<td width="164" height="29"><span class="badge">{{moreInfo.registerno}}</span> 
+					</td>
+ 				</tr>
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+					<td width="114" height="29">பாலினம்</td>
+					<td width="184" height="29"> {{moreInfo.gender}}</td>
+					<td width="114" height="29">பிறந்த தேதி</td>
+					<td width="184" height="29">{{moreInfo.dateofbirth}}</td>
+				</tr>
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+ 					<td width="114" height="29">கல்வி தகுதி</td>
+					<td width="184" height="29">{{moreInfo.education}}</td>
+					<td width="114" height="29">வேலை<span lang="en-us">/</span>தொழில்</td>
+					<td width="184" height="29">{{moreInfo.occupation}}</td>
+				</tr>
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+					<td width="114" height="29">உயரம்</td>
+					<td width="184" height="29">{{moreInfo.heightft}}</td>
+					<td width="114" height="29">நிறம்</td>
+					<td width="184" height="29">{{moreInfo.complexion}}</td>
+				</tr>
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+ 					<td width="114" height="29">பணிபுரியும் இடம்</td>
+					<td width="184" height="29"> {{moreInfo.workingplace}}</td>
+					<td width="114" height="33">மாத வருமானம்</td>
+					<td width="184" height="33">{{moreInfo.monthlyincome}}</td>
+				</tr>
+				<tr>    
+					<td width="14" height="33" align="right">&nbsp;</td>
+					<td width="114" height="33">இனம் உட்பிரிவு</td>
+					<td width="184" height="33">{{moreInfo.subcastename}}</td>
+					<td width="114" height="33">வகையிறா</td>
+					<td width="184" height="33">{{moreInfo.vagaira}}</td>
+				</tr>
+				<tr> 
+					<td width="14" height="35" align="right">&nbsp;</td>
+					<td width="114" height="35">தற்போது</td>
+					<td width="184" height="35">{{moreInfo.marriedstatus}}</td>
+					<td width="114" height="35">உடல் தகுதி</td>
+					<td width="184" height="35">{{moreInfo.physical}}</td>
+				</tr>
+				<tr class="vendorListHeading">
+					<td colspan="7"  align="right" style="text-align:left;background-color:#A52A2A;color:#ffffff;height:24px;font-size:12px;font-weight:bold;padding-left:5px; border-top-left-radius:12px; border-top-right-radius:12px;" width="447" height="29">
+						<p align="right" style=" color: #ffffff !important;"> www.sandhiyamatrimony.com முக்குலத்தோருக்கு சமூகத்திற்க்கு மட்டும்  </p>  
+					 </td>
+				</tr>
+				<tr>
+					<td width="14" height="27" align="right">&nbsp;</td>
+					<td width="114" height="0">தந்தை பெயர்</td>
+					<td colspan="2" width="329" height="0">{{moreInfo.fathername}} </td>
+					<td width="164" height="0">தந்தை தொழில்</td>
+					<td colspan="2" width="360" height="0">{{moreInfo.fatheroccupation}}</td>
+				</tr>
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+					<td width="114" height="29">தாயார் பெயர்</td>
+					<td colspan="2" width="329" height="29">{{moreInfo.mothername}}</td>
+					<td width="164" height="29">தாயார் தொழில்</td>
+					<td colspan="2" width="360" height="29">{{moreInfo.motheroccupation}}</td>
+				</tr>
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+					<td width="114" height="29">சொந்த ஊர்</td>
+					<td colspan="2" width="329" height="29">{{moreInfo.nativeplace}}</td>
+					<td width="164" height="29">சொத்துக்கள்</td>
+					<td colspan="2" width="360" height="29">{{moreInfo.assets}}</td>
+				</tr>
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+					<td width="114" height="29">சகோதரர்கள்</td>
+					<td colspan="2" width="329" height="29">{{moreInfo.brother}}</td>
+					<td width="164" height="29">திருமணமானவர்கள்</td>
+					<td width="133" height="29">{{moreInfo.marriedbrothers}}</td>
+					<td rowspan="2" width="219" height="58" align="center">
+					--					</td>
+				</tr>
+				<tr>
+					<td width="14" height="29" align="right">&nbsp;</td>
+					<td width="114" height="29">சகோதரிகள்</td>
+					<td colspan="2" width="329" height="29">{{moreInfo.sister}}</td>
+					<td width="164" height="29">திருமணமானவர்கள்</td>
+					<td width="133" height="29">{{moreInfo.marriedsister}}</td>
+				</tr>
+				<tr>
+					<td width="14" height="8" align="right"></td>
+					<td width="114" height="8">குலதெய்வம்</td>
+					<td colspan="5" width="853" height="8">{{moreInfo.kulatheivam}}</td>
+				</tr>
+ 			   <tr class="vendorListHeading" ng-show="addressid">
+					<td colspan="7"  align="right" style="text-align:left;background-color:#A52A2A;color:#ffffff;height:24px;font-size:12px;font-weight:bold;padding-left:5px; border-top-left-radius:12px; border-top-right-radius:12px;" width="447" height="29">
+						<p align="right" style=" color: #ffffff !important;"> www.sandhiyamatrimony.com முக்குலத்தோருக்கு சமூகத்திற்க்கு மட்டும்  </p>  
+					 </td>
+				</tr>
+				<tr ng-show="addressid">
+					<td width="14" height="1" align="right"></td>
+					<td width="114" height="1"></td>
+					<td colspan="2" width="329" height="1"></td>
+					<td width="164" height="1"></td>
+					<td colspan="2" width="360" height="1"></td>
+				</tr><div class="watermark" style="position: absolute; opacity: 0.2;left: 318px; top: 578px"><font size="50">
+		           www.sandhiyamatrimony.com.com</font>
+			    </div>   
+				<tr height="29" ng-show="addressid">
+					<td width="14" height="0" align="right">&nbsp;</td>
+					<td width="114" height="0">முகவரி 1</td>
+					<td colspan="2" width="329" height="0">{{moreInfo.addressone}} </td>
+					<td width="164" height="0"><span id="erraddress1"></span>
+					</td>
+					<td colspan="2" width="360" height="0">&nbsp;</td>
+				</tr>
+				<tr height="29" ng-show="addressid">
+					<td width="14" height="0" align="right">&nbsp;</td>
+					<td width="114" height="0">முகவரி 2</td>
+					<td colspan="2" width="329" height="0">{{moreInfo.addresstwo}} </td>
+					<td width="164" height="0">தொலைபேசி எண்</td>
+					<td colspan="2" width="360" height="0">{{moreInfo.contactno}} </td>
+				</tr>
+				<tr height="29" ng-show="addressid">
+					<td width="14" height="0" align="right">&nbsp;</td>
+					<td width="114" height="0">மாவட்டம்</td>
+					<td colspan="2" width="329" height="0">{{moreInfo.city}} </td>
+					<td width="164" height="0">மொபைல் எண்</td>
+					<td colspan="2" width="360" height="0">{{moreInfo.mobileno}}</td>
+				</tr>
+				<tr ng-show="addressid"> 
+					<td width="14" height="1" align="right"></td>
+					<td width="114" height="1"></td>
+					<td colspan="2" width="329" height="1"></td>
+					<td width="164" height="1"></td>
+					<td colspan="2" width="360" height="1"></td>
+				</tr>  
+ 				<tr class="vendorListHeading"> 
+					<td colspan="7"  align="right" style="text-align:left;background-color:#A52A2A;color:#ffffff;height:24px;font-size:12px;font-weight:bold;padding-left:5px; border-top-left-radius:12px; border-top-right-radius:12px;" width="447" height="29">
+						<p align="right" style=" color: #ffffff !important;"> www.sandhiyamatrimony.com முக்குலத்தோருக்கு சமூகத்திற்க்கு மட்டும்  </p>  
+					 </td>
+				</tr>
+								<tr>
+					<td width="14" height="22" align="right">&nbsp;</td>
+					
+					<td width="114" height="24">ராசி</td>
+					<td colspan="2" width="329" height="24">{{moreInfo.rasi}}</td>
+ 					<td width="114" height="22">நட்சத்திரம்</td>
+					<td colspan="2" width="329" height="22">{{moreInfo.star}}</td>
+					
+				</tr> 
+				
+				<tr>  
+					<td width="14" height="24" align="right">&nbsp;</td> 
+					<td width="114" height="24">பாதம்</td>
+					<td colspan="2" width="329" height="24">{{moreInfo.patham}}</td>
+					<td width="164" height="24" align="right">
+					<p align="left">லக்னம்</p></td>
+					<td colspan="2" width="360" height="24">{{moreInfo.lagnam}}</td>
+				</tr> 
+				<!-- <tr>
+					<td width="14" height="24" align="right">&nbsp;</td>				
+					<td width="114" height="22" align="right">   
+					<p align="left">திசை இருப்பு</p></td>
+						<td     width="160" height="22">{{moreInfo.dhishaiiruphu}}  &nbsp;&nbsp;&nbsp; {{moreInfo.year_month_date}}</td>				</tr> -->
+			 
+			</tbody></table>
+		</div>  
+		
+		<input name="contt" type="hidden">
+		<input name="id_id" value="1786" type="hidden">
+	</form>     
+</div>          
+  	<div class="row" style="margin-top: 20px;margin-right: 7px;"   >     
+  		  <button ng-click=" openPrint('printDiv',moreInfo)" class="btn btn-u pull-right" value=""  type="button"> Print Member Details</button>
+  		    		 <button ng-click="getAddress(moreInfo)" class="btn btn-u pull-right" value="" style="margin-right: 10px;" type="button"> Address</button> &nbsp;
+  		  
+  		 </div>	
+ </div> 

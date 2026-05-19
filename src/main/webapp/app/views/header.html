@@ -1,0 +1,167 @@
+﻿<!--=== Header ===-->
+<link rel="stylesheet" href="./assets/css/pages/profile.css">
+<style>.whatsbutton { position: fixed; right: 0; bottom: 40%; z-index: 999; }</style>
+<style>.whatsbutton1 { position: fixed; left: 0; bottom: 40%; z-index: 999; }</style>
+<style>.whatsbutton2 { position: fixed; right: 0; bottom: 50%; z-index: 999; }</style>
+
+<div ng-controller="menuctrl">
+		<div class="header"  >
+			<div class="container">
+				<!-- Logo --> 
+				<a class="logo" href="#/">
+					<img src="assets/img/santhiyalogo.png" alt="Logo" style="width:270px">
+				</a>
+				<!-- End Logo -->
+
+				<!-- Topbar -->
+				<div class="topbar">
+					<ul class="loginbar pull-right">  
+						<li class="hoverSelector">
+							<i class="fa fa-globe"></i>
+							<a href="#/happynewyearlist">New year Wishes</a>
+ 						</li>
+						<!-- <li class="topbar-devider"></li>
+				 		<li><a href="page_faq.html">Help</a></li> -->
+					</ul>
+				</div>
+				<!-- End Topbar -->
+
+				<!-- Toggle get grouped for better mobile display -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					<span class="sr-only">Toggle navigation</span>   
+					<span class="fa fa-bars"></span>
+				</button>
+				<!-- End Toggle -->
+			</div><!--/end container-->
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse mega-menu navbar-responsive-collapse" >
+				<div class="container">
+					
+					<ul class="nav navbar-nav" ng-init="tabs = 1" ng-if="role=='dashboard'">
+						
+						<li><a  href="" ng-click="logout()" class="dropdown" data-toggle="dropdown">முகப்பு <br> Home</a></li>
+						<li><a href="#/registration" class="dropdown" data-toggle="dropdown">பதிவு <br> Registration</a></li>
+						<li><a  href="" ng-click="search()" class="dropdown" data-toggle="dropdown">தேடல் <br> Search</a></li>
+						<li><a href="#/plan" class="dropdown" data-toggle="dropdown">கட்டணத் திட்டம் <br> Payment Plan</a></li>
+<!-- 						<li><a href="#/vipprofile" class="dropdown" data-toggle="dropdown"> VIP Profile</a></li>						
+ -->						<li><a href="#/contact" class="dropdown" data-toggle="dropdown">தொடர்பு <br> Contact</a></li>
+						<li><a href="#/login" class="dropdown" data-toggle="dropdown">உள் நுழை <br> Login</a></li>
+						
+					</ul>  
+					<ul class="nav navbar-nav" ng-init="tabs = 1" ng-if="role=='admin'">
+						
+						<li><a href="#/" class="dropdown" data-toggle="dropdown"> Home</a></li>
+						<li><a href="#/admin" class="dropdown" data-toggle="dropdown"> Admin Page</a></li>
+						<li><a href="#/repassword" class="dropdown" data-toggle="dropdown">Change Password</a></li>
+						<li><a href="" ng-click="logout()" class="dropdown" data-toggle="dropdown">Logout</a></li>
+						
+					</ul>
+					<ul class="nav navbar-nav" ng-init="tabs = 1" ng-if="role=='user'">
+						
+<!-- 						<li><a href="#/" class="dropdown" data-toggle="dropdown">முகப்பு <br> Home</a></li>
+ -->						<li><a href="#/profile" class="dropdown" data-toggle="dropdown">சுயவிவரம் <br> Profile</a></li>
+<!-- 						<li><a href="#/registration" class="dropdown" data-toggle="dropdown">பதிவு <br> Registration</a></li>
+ -->						<li><a href="#/usersearch" class="dropdown" data-toggle="dropdown">தேடல் <br> Search</a></li>
+						<li><a href="#/userplan" class="dropdown" data-toggle="dropdown">கட்டணத் திட்டம் <br> Payment Plan</a></li>
+<!-- 						<li><a href="#/contact" class="dropdown" data-toggle="dropdown">தொடர்பு <br> Contact</a></li>
+ -->						<li><a href="" ng-click="logout()" class="dropdown" data-toggle="dropdown">பதிவு <br> Logout</a></li>
+						
+					</ul>
+				</div><!--/end container--> 
+			</div><!--/navbar-collapse-->
+			
+		     <div class="whatsbutton">
+      		  <a href="https://api.whatsapp.com/send?phone=919489638388&amp;text=திருமணத்திற்கு வரன் பார்க்கிறோம். பொருத்தமான விவரம் அனுப்பவும்" target="_blank"><img src="assets/img/whatsapp-icon.png"></a>
+			</div>
+			<div class="whatsbutton2">
+      		  <a href="https://play.google.com/store/apps/details?id=com.dn.matrimoni" target="_blank"><img style="width:65px" src="assets/img/playstore.png"></a>
+			</div>
+			<div class="whatsbutton1">
+                             <a href="tel:8883899009"><img src="assets/img/call-now.png" style="width:65px;height:60px"></a>
+            </div>
+		</div>
+	<div>
+		<!-- <div   class="breadcrumbs"> 
+			<div class="container" >
+				<div class="row">    
+				<div class="col-md-3" style="padding-top: 25px;">
+				<font style="color: #687074; font-size: 15px;font-weight: 400; text-transform: uppercase;">Welcome <b>{{user.name}}</b></font></div>
+				<div class="col-md-3" style="padding-top: 25px;"> 
+				<font style="color: #687074; font-size: 15px;font-weight: 400; text-transform: uppercase;"> Register No : <b>{{user.registerid}}</b></font></div>
+				<div class="col-md-3" style="padding-top: 25px;"> 
+				<font style="color: #687074; font-size: 15px;font-weight: 400; text-transform: uppercase;"> You have  <b>{{user.updatecount}}</b> Contacts</font></div>
+				<div class="col-md-3"><img style="width: 65px;height: 75px;" class=" profile-img pull-right" src="././OpenFile?r1=serverpath&r2={{user.photo }}" alt="">
+				</div>
+  				</div>       
+  			</div>    
+  			</div> -->   
+
+		<!-- <div class="col-md-3 md-margin-bottom-40   profile" style="padding-top:10px"
+			ng-if="role=='user'"> 
+			<div class="card hovercard">
+				<div class="cardheader"></div>
+				<div class="avatar">
+					<img alt="" src="././OpenFile?r1=serverpath&r2={{user.photo }}">
+				</div>
+				<div class="info" style="margin-bottom: 10px;"> 
+					<div class="title">
+						<a target="_blank">{{user.name}}</a>
+					</div> 
+					<div class="desc" ><span class="label rounded label-warning">{{user.registerno}}</span> </div>
+ 					                            <ul class="list-inline badge-lists margin-bottom-30">
+ 					<li>
+                                    <a class="btn-u btn-u-xs btn-u-dark" href="#">Contacts</a>
+                                     <span class="badge badge-red rounded-2x">{{user.updatecount}}</span>
+                                </li></ul>
+					 
+ 				</div>
+			</div>
+			<ul class="list-group sidebar-nav-v1 "
+				id="sidebar-nav-1">
+   
+				<li class="list-group-item  " ng-class="getClass('/profile')">
+					<a href="#/profile"><i class="fa fa-user"></i>Profile</a>
+				</li>
+				<li class="list-group-item" ng-class="getClass('/paymenthistory')">
+					<a href="#/paymenthistory"><i class="fa fa-group"></i>Payment
+						Details</a>
+				</li>
+				<li class="list-group-item" ng-class="getClass('/viewedyourhistory')">  
+					<a href="#/viewedyourhistory/rprofile"><i class="fa fa-cubes"></i>Recent Viewd by</a>
+				</li>
+				<li class="list-group-item" ng-class="getClass('/viewedhistory')">
+					<a href="#/viewedhistory"><i class="fa fa-cubes"></i>History</a>
+				</li>
+				<li class="list-group-item" ng-class="getClass('/likedhistory')">
+					<a href="#/likedhistory"><i class="fa fa-cubes"></i>Liked History</a>
+				</li>	
+				<li class="list-group-item" ng-class="getClass('/likedbyhistory')">
+					<a href="#/likedbyhistory"><i class="fa fa-cubes"></i>Liked By </a> 
+				</li>
+				<li class="list-group-item" ng-class="getClass('/editprofile')">
+					<a href="#/editprofile"><i class="fa fa-lock"></i>Edit Profile</a>
+				</li>
+				<li class="list-group-item" ng-class="getClass('/repassword')">
+					<a href="#/repassword"><i class="fa fa-lock"></i>Change
+						Password</a>
+				</li>
+			</ul>     
+			<div class="headline">   
+				<h2>VIP Profiles</h2>
+			</div> 
+			<div class=" ">       
+		      <carousel interval="myInterval">  
+		        <slide ng-repeat="sliderlist in sliderlist" >
+		          <img class="img-responsive" ng-src="./OpenFile?r1=serverpath&r2={{sliderlist.imagepath}}" style="width:400px;height:400px;margin:auto;">
+		          <div class="carousel-caption">
+		            <h4 style="color: white;">{{sliderlist.registerno}}</h4>
+		          </div>
+ 		        </slide>  
+		      </carousel>     
+		    </div>
+		</div> -->
+	</div>
+	<!--=== End Header ===-->
+		
+</div>   		 

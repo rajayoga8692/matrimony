@@ -1,0 +1,120 @@
+<link rel="stylesheet" href="./assets/css/pages/profile.css">
+<style>
+.rasi {
+	font-style: italic;
+	color: coral;
+	padding-right: 40px;
+}
+
+.tbl {
+	height: 80px;
+	width: 90px;
+	text-align: center
+}
+</style>
+<!--=== Profile ===-->
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left">
+			 <i class="fa fa-briefcase"></i> Payment History
+		</h1>
+	</div>
+</div>
+<div class="container content profile" ng-controller="profilectrl">
+	<div class="row">
+		 <div class="col-md-3 md-margin-bottom-40   profile" style="padding-top:10px" > 
+					<div class="card hovercard">
+						<div class="cardheader"></div>
+						<div class="avatar">
+							<img alt="" src="././OpenFile?r1=serverpath&r2={{user.photo }}">
+						</div>
+						<div class="info" style="margin-bottom: 10px;"> 
+							<div class="title">
+								<a target="_blank">{{user.name}}</a>
+							</div> 
+							<div class="desc" ><span class="label rounded label-warning">{{user.registerno}}</span> </div>
+		 					                            <ul class="list-inline badge-lists " style="margin-top:15px">
+		 					<li>
+		                                    <a class="btn-u btn-u-xs btn-u-dark" href="#">Contacts</a>
+		                                     <span class="badge badge-red rounded-2x">{{user.updatecount}}</span>
+		                                </li></ul>
+							 
+		 				</div>
+					</div>
+					<ul class="list-group sidebar-nav-v1 "
+						id="sidebar-nav-1">
+		   
+						<li class="list-group-item  " ng-class="getClass('/profile')">
+							<a href="#/profile"><i class="fa fa-user"></i>Profile</a>
+						</li>
+						<li class="list-group-item active" ng-class="getClass('/paymenthistory')">
+							<a href="#/paymenthistory"><i class="fa fa-money"></i>Payment
+								Details</a>
+						</li>
+						<li class="list-group-item" ng-class="getClass('/viewedyourhistory')">  
+							<a href="#/viewedyourhistory/rprofile"><i class="fa fa-eye"></i>Recent Viewd by</a>
+						</li>
+						<li class="list-group-item" ng-class="getClass('/viewedhistory')">
+							<a href="#/viewedhistory"><i class="fa fa-history"></i>History</a>
+						</li>
+						<li class="list-group-item" ng-class="getClass('/likedhistory')">
+							<a href="#/likedhistory"><i class="fa  fa-heart"></i>Favorites</a>
+						</li>	
+						<li class="list-group-item" ng-class="getClass('/likedbyhistory')">
+							<a href="#/likedbyhistory"><i class="fa fa-thumbs-up"></i>Shortlist By </a> 
+						</li>
+						<!-- <li class="list-group-item" ng-class="getClass('/editprofile')">
+							<a href="#/editprofile"><i class="fa fa-lock"></i>Edit Profile</a>
+						</li> -->
+						<li class="list-group-item" ng-class="getClass('/repassword')">
+							<a href="#/repassword"><i class="fa fa-lock"></i>Change
+								Password</a>
+						</li>
+					</ul>     
+					<div class="headline">   
+						<h2>VIP Profiles</h2>
+					</div> 
+					<div class=" ">       
+				      <carousel interval="myInterval">  
+				        <slide ng-repeat="sliderlist in sliderlist" >
+				          <img class="img-responsive" ng-src="./OpenFile?r1=serverpath&r2={{sliderlist.imagepath}}" style="width:400px;height:400px;margin:auto;">
+				          <div class="carousel-caption">
+				            <h4 style="color: white;">{{sliderlist.registerid}}</h4>
+				          </div>
+		 		        </slide>  
+				      </carousel>    
+				    </div>
+				</div>   
+		<div class="col-md-9">
+			<div class="panel-heading overflow-h">
+                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-money"></i>Payment Details</h2>
+             </div>
+			<div class="profile-body margin-bottom-20">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th >Plan Name</th>
+								<th>Contacts</th>
+								<th>Amount</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="paymenthistory in paymenthistory">
+								<td>{{$index+1}}</td> 
+								<td>{{paymenthistory.planname}}</td>
+								<td>{{paymenthistory.contacts}}</td>
+								<td>{{paymenthistory.amount}}</td> 
+ 							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<!-- End Profile Content -->
+	</div>
+	<!--/end row-->
+</div>
+<!--=== End Profile ===-->

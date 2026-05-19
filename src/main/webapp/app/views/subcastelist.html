@@ -1,0 +1,92 @@
+ 
+    <div class="breadcrumbs">
+		<div class="container">
+			<h1 class="pull-left"> உட்ப்பிரிவு  / Sub Caste</h1>
+			 	    <a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+			 
+		</div> 
+	</div>
+ <!-- Left Bordered Funny Boxes -->
+<div class="container content-sm" ng-controller="subcastectrl">
+	<form class="form-horizontal" novalidate="novalidate">
+		<div class="row">
+			<div class="shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2"
+					style="padding: 60px">
+					<div class="col-md-offset-3 col-md-5">
+						<input type="text" ng-model="subcaste" class="form-control"
+							placeholder="உட்ப்பிரிவு  / Sub Caste ">
+					</div>
+					<div class="col-md-3">
+						<button class="btn-u btn-u-purple" type="button"
+							ng-click="saveSubCaste()">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="panel panel-red margin-bottom-40">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-user"></i> உட்ப்பிரிவு / Sub Caste
+					</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Sub Caste Name</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="subcastelist in subcastelist">
+								<td>{{$index+1}}</td>
+								<td>{{subcastelist.subcastename}}</td>
+								<td><i class="fa fa-pencil"
+									ng-click="editsubcaste(subcastelist)"></i></td>
+								<td><i class="fa fa-trash-o" aria-hidden="true"
+									ng-click="deletesubcaste(subcastelist)"></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-5">
+							<input type="text" ng-model="subcastename" class="form-control"
+								placeholder="subcaste name">
+						</div>
+						<div class="col-md-3">
+							<button class="btn-u btn-u-purple" value="{{subcastename}}"
+								type="button" ng-click="updateSubcaste()">Update</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Left Bordered Funny Boxes -->
+</div>
+<!--/container-->

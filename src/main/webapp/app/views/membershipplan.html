@@ -1,0 +1,157 @@
+
+<link rel="stylesheet" href="./assets/css/sky-forms.css">
+<link rel="stylesheet" href="./assets/css/custom-sky-forms.css">
+
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left">Membership Plan</h1>
+<a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+
+	</div>
+</div>
+
+<!-- Left Bordered Funny Boxes -->
+<div class="container content-sm" ng-controller="planctrl">
+	<form novalidate="novalidate" id="sky-form1" class="sky-form">
+	    <header style="color:#666">Plan Entry</header>
+	 
+		<fieldset>
+			 
+			
+			<div class="row"> 
+				<section class="col col-6">
+					<label class="input"> 
+						<input type="text" ng-model="planname" placeholder="Plan name">
+					</label>
+				</section>
+				<section class="col col-6">
+					<label class="input">  
+					 <input type="number" ng-model="amount" placeholder="Amount">
+					</label>
+				</section>
+			</div>
+
+			<div class="row">
+				<section class="col col-6">
+					<label class="input"> 
+						<input type="number" ng-model="validitydays" placeholder="validity day">
+					</label>
+				</section>
+			
+				<section class="col col-6">
+					<label class="input">  <i class="icon-append fa fa-user"></i>
+						<input type="number" ng-model="contacts" placeholder="Contacts">
+					</label>
+				</section>
+ 			</div>
+		</fieldset>
+
+
+		<footer>
+			<button type="submit" class="btn-u" ng-click="savePlan()">Submit</button>
+ 		</footer>
+   	</form>
+  		<br>
+		<div class="row">
+			<div class="  panel panel-red margin-bottom-40">
+				<div class="  panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-user"></i> Membership Plan
+					</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Plan Name</th>
+								<th>Contacts</th>
+								<th>Validity days</th>
+ 								<th>Amount(Rs)</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="planlist in planlist">
+								<td>{{$index+1}}</td>
+								<td>{{planlist.planname}}</td>
+								<td>{{planlist.contacts}}</td>
+							    <td>{{planlist.validitydays}}</td>
+ 								<td>{{planlist.amount}}</td>
+								<td><i class="icon-custom icon-sm icon-bg-u  fa fa-pencil" ng-click="editcity(planlist)"></i></td>
+								<td><i class="icon-custom icon-sm icon-bg-red  fa fa-trash-o" aria-hidden="true"
+									ng-click="deletememberplan(planlist)"></i></td>  
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	<div class="modal fade" id="myModal" ng-show="mdlview" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h2 class="modal-title" id="exampleModalLabel">Edit</h2>
+				</div>
+				<div class="modal-body">
+					<form novalidate="novalidate" id="sky-form1" class="sky-form">
+						<header style="color: #666">Plan Edit</header>
+
+						<fieldset>
+							<div class=" col-md-12">
+								<div class="row">
+									<section class="col col-6">
+										<label class="input">  <input type="text"
+											ng-model="pname" placeholder="Plan name">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input">  <input type="number"
+											ng-model="price" placeholder="Amount">
+										</label>
+									</section>
+								</div>
+
+								<div class="row">
+									<section class="col col-6">
+										<label class="input">  <i class="icon-append fa fa-user"></i> <input type="number"
+											ng-model="contact" placeholder="Contacts">
+										</label>
+									</section>
+									<section class="col col-6">
+										<label class="input">  <input type="number"
+											ng-model="validityday" placeholder="validitydays">
+										</label>
+									</section>
+
+								</div>
+
+								<footer>
+									<button class="btn-u btn-u-purple" type="button"
+										ng-click="updatemember()">Update</button>
+								</footer>
+							</div>
+						</fieldset>
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<!-- End Left Bordered Funny Boxes -->
+</div>
+<!--/container-->

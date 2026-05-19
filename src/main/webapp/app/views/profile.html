@@ -1,0 +1,506 @@
+<link rel="stylesheet" href="./assets/css/pages/profile.css">
+<style>
+     .rasi{
+	     font-style: italic;
+	    color: coral;
+	    padding-right:40px;
+    }
+     .tbl {
+		    
+		    height: 80px;
+		    width: 90px;
+		    text-align:center
+    }
+ </style>
+<!--=== Profile ===-->
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left">
+			<i class="fa fa-search"></i> சுயவிவரம் / Profile
+		</h1>
+	</div>
+</div>
+		<div class="container content profile" ng-controller="profilectrl">
+			<div class="row">
+				<div class="col-md-3 md-margin-bottom-40   profile" style="padding-top:10px" > 
+					<div class="card hovercard">
+						<div class="cardheader"></div>
+						<div class="avatar">
+							<img alt="" src="././OpenFile?r1=serverpath&r2={{user.photo }}">
+						</div>
+						<div class="info" style="margin-bottom: 10px;"> 
+							<div class="title">
+								<a target="_blank">{{user.name}}</a>
+							</div> 
+							<div class="desc" ><span class="label rounded label-warning">{{user.registerno}}</span> </div>
+		 					                           
+		 					            <ul class="list-inline badge-lists " style="margin-top:15px">
+		 								<li >
+		                                    <a class="btn-u btn-u-xs btn-u-dark" >Contacts</a>
+		                                     <span class="badge badge-red rounded-2x ">{{user.updatecount}}</span>
+		                                </li>
+		                    </ul>
+							 
+		 				</div>
+					</div>
+					<ul class="list-group sidebar-nav-v1 "
+						id="sidebar-nav-1">
+		   
+						<li class="list-group-item active " ng-class="getClass('/profile')">
+							<a href="#/profile"><i class="fa fa-user"></i>Profile</a>
+						</li>
+						<li class="list-group-item" ng-class="getClass('/paymenthistory')">
+							<a href="#/paymenthistory"><i class="fa fa-money"></i>Payment
+								Details</a>
+						</li>
+						<li class="list-group-item" ng-class="getClass('/viewedyourhistory')">  
+							<a href="#/viewedyourhistory/rprofile"><i class="fa fa-eye"></i>Recent Viewd by</a>
+						</li>
+						<li class="list-group-item" ng-class="getClass('/viewedhistory')">
+							<a href="#/viewedhistory"><i class="fa fa-history"></i>History</a>
+						</li>
+						<li class="list-group-item" ng-class="getClass('/likedhistory')">
+							<a href="#/likedhistory"><i class="fa  fa-heart"></i>Favorites</a>
+						</li>	
+						<li class="list-group-item" ng-class="getClass('/likedbyhistory')">
+							<a href="#/likedbyhistory"><i class="fa fa-thumbs-up"></i>Shortlist By </a> 
+						</li>
+						<!-- <li class="list-group-item" ng-class="getClass('/editprofile')">
+							<a href="#/editprofile"><i class="fa fa-lock"></i>Edit Profile</a>
+						</li> -->
+						<li class="list-group-item" ng-class="getClass('/repassword')">
+							<a href="#/repassword"><i class="fa fa-lock"></i>Change
+								Password</a>
+						</li>
+					</ul>     
+					<div class="headline">   
+						<h2>VIP Profiles</h2>
+					</div> 
+					<div class=" ">       
+				      <carousel interval="myInterval">  
+				        <slide ng-repeat="sliderlist in sliderlist" >
+				          <img class="img-responsive" ng-src="./OpenFile?r1=serverpath&r2={{sliderlist.imagepath}}" style="width:400px;height:400px;margin:auto;">
+				          <div class="carousel-caption">
+				            <h4 style="color: white;">{{sliderlist.registerid}}</h4>
+				          </div>
+		 		        </slide>  
+				      </carousel>    
+				    </div>
+				</div>   
+				<div class="col-md-9">
+					<div class="alert alert-danger fade in" ng-show="(_update.status=='D')">
+							<strong>Oops, </strong> Your account is in <b>Deactive</b> mode. Once adminstration is verified the all your datas then your account will be go to <b>Activate</b> mode    
+					</div>
+					<!-- <div class="alert alert-success fade in" ng-show="(_update.status=='A')">
+							<strong>வாழ்த்துக்கள், </strong> Now your account is <b>Active</b> mode. Now you can go and search number of horoscope from with in your plane limits.
+							<strong>Congratulation, </strong> Now your account is <b>Active</b> mode. Now you can go and search number of horoscope from with in your plane limits.  
+					</div> -->
+						<div class="row" style="border: 1px dashed #ed6b3a;border-radius: 14px;box-shadow: 10px 10px 5px grey;">
+								<div class="col-xs-12 col-md-12" style="background-color:#ed6b3a;height:24px;font-size:16px;color: white;font-weight:bold;padding-top:5px; border-top-left-radius:12px; border-top-right-radius:12px;padding-bottom: 25px;"><p class="text-left">Account Details</p></div>
+								<div class="col-xs-12 col-md-12">&nbsp;&nbsp;</div>
+								<div class="col-xs-12 col-md-12">
+									<div class="form-group headstyle3"> 
+										<div class="row">
+											<div class="col-xs-6 col-md-2" style="text-align:left;"><label class="control-label">Entry Date</label></div>
+											<div class="col-xs-6 col-md-3" style="text-align:left;"><label class="control-label">{{dataFormat(myplan[0].subscripeddate)}}</label></div>
+											<div class="col-xs-6 col-md-2" style="text-align:left;"><label class="control-label">Expire Date</label></div>
+											<div class="col-xs-6 col-md-3" style="text-align:left;"><label class="control-label">{{dataFormat(myplan[0].expireddate)}}</label></div>
+										</div>
+									</div>
+									<div class="form-group headstyle3">
+										<div class="row">
+											<div class="col-xs-6 col-md-2" style="text-align:left;"><label class="control-label">Allocate</label></div>
+											<div class="col-xs-6 col-md-3" style="text-align:left;"><label class="control-label">{{myplan[0].contacts}}</label></div>
+											<div class="col-xs-6 col-md-2" style="text-align:left;"><label class="control-label">Balance</label></div>
+											<div class="col-xs-6 col-md-3" style="text-align:left;"><label class="control-label badge">{{myplan[0].updatecount}}</label></div>
+										</div> 
+									</div>
+									<div class="form-group headstyle3"> 
+										<div class="row">
+											<div class="col-xs-6 col-md-2" style="text-align:left;"><label class="control-label">Last Login</label></div>
+											<div class="col-xs-6 col-md-3" style="text-align:left;"><label class="control-label">{{dataFormattime(user.lastlogin)}}</label></div>
+											<div class="col-xs-6 col-md-6"><label class="control-label"><a href="#/viewedhistory">View History</a></label></div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-md-12" style="background-color:#213ed6b3a;color:#ffffff;height:24px;font-size:12px;font-weight:bold;padding-top:5px; border-bottom-left-radius:12px; border-bottom-right-radius:12px;"></div>
+									</div>
+								</div>
+							</div> 
+					<br>
+					<div class="profile-body margin-bottom-20">
+						<div class="tab-v1">
+							<ul class="nav nav-justified nav-tabs" ng-init="tab = 1">
+								<li ng-class="{ active:tab===1 }"><a ng-click="tab = 1" data-toggle="tab" href="">சொந்த விவரங்கள் <br>Personal Details</a></li>
+								<li ng-class="{ active:tab===2 }"><a ng-click="tab = 2" data-toggle="tab" href="">குடும்ப விவரங்கள் <br> Family Details</a></li>
+								<li ng-class="{ active:tab===3 }"><a ng-click="tab = 3" data-toggle="tab" href="">தொடர்பு விபரங்கள் <br>Contact Details</a></li>
+								<li ng-class="{ active:tab===4 }"><a ng-click="tab = 4" data-toggle="tab" href="">ஜாதகம் விபரங்கள் <br> Horoscope Details</a></li>
+								<li ng-class="{ active:tab===5 }"><a ng-click="tab = 5" data-toggle="tab" href="">மற்ற விவரங்கள்<br> Other Details</a></li>
+							</ul>
+							<div class="tab-content">
+								<div id="profile" class="profile-edit tab-pane fade in active" ng-class="{ active:tab===1 }">
+									<h2 class="heading-md">Manage your Name, ID and Email Addresses.</h2>
+									<p>Below are the name and email addresses on file for your account.</p>
+									<br>
+									<dl class="dl-horizontal">
+										<dt><strong>பெயர் / Name </strong></dt>
+										<dd>
+											{{_update.name}}
+											 
+										</dd>
+										<hr>
+										<dt><strong>பாலினம் / Gender </strong></dt>
+										<dd>
+											{{_update.gender}}
+											 
+										</dd>
+										<hr>
+										<dt><strong>பிறந்த தேதி <br> Date Of Birth </strong></dt>
+										<dd>
+											{{_update.dateofbirth}}
+											 
+										</dd>
+										<hr>
+										<dt><strong>பிறந்த ஊர் <br> Birth Place * </strong></dt>
+										<dd>
+ 											  <div ng-if="_update.birthplace!=null && _update.birthplace!='' && _update.birthplace!='null' ">{{_update.birthplace}}</div>
+											 <div ng-if="_update.birthplace==null || _update.birthplace=='' || _update.birthplace=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>உயரம் / Height </strong></dt>
+  										<dd >
+ 											<div ng-if="_update.heightft!=null && _update.heightft!='' && _update.heightft!='null' ">{{_update.heightft }}</div>
+											<div ng-if="_update.heightft==null ||  _update.heightft=='' ||  _update.heightft=='null' ">-</div>
+  										</dd>
+										<hr>
+										<dt><strong>நிறம் / Complexion </strong></dt>
+										<dd>
+											{{_update.complexion }} 
+											 
+										</dd>
+										<hr>
+										<dt><strong> ஜாதி உட்பிரிவு <br> Sub Caste</strong></dt>
+										<dd>
+											 {{_update.subcastename }}
+											 
+										</dd>
+										 
+										<!-- <dt><strong>கல்வி தகுதி <br> Education Level </strong></dt>
+										<dd>
+											{{_update.elevel }}
+											 
+										</dd> -->
+										<hr>
+										<dt><strong>கல்வி / Education </strong></dt>
+										<dd>
+											{{_update.education }}
+											 
+										</dd>
+										<hr>
+										
+										<dt><strong>தொழில் / Occupation </strong></dt>
+										<dd>
+ 											<div ng-if="_update.jobname !=null && _update.jobname !='' && _update.jobname !='null' ">{{_update.jobname  }}</div>
+											<div ng-if="_update.jobname ==null ||  _update.jobname =='' ||  _update.jobname =='null' ">-</div>
+											 
+										</dd>
+										<hr>
+										
+										<dt><strong>வேலை இடம் <br> Working Place</strong></dt>
+										<dd>
+ 											<div ng-if="_update.workingplace !=null && _update.workingplace !='' && _update.workingplace !='null' ">{{_update.workingplace  }}</div>
+											<div ng-if="_update.workingplace ==null ||  _update.workingplace =='' ||  _update.workingplace =='null' ">-</div>
+											 
+										</dd>
+										<hr>
+										
+										<dt><strong>வருமானம்  <br> Income (Monthly) </strong></dt>
+										<dd>
+											<div ng-if="_update.monthlyincome!=null && _update.monthlyincome!='' && _update.monthlyincome!='null' ">{{_update.monthlyincome }}</div>
+											 <div ng-if="_update.monthlyincome==null ||  _update.monthlyincome=='' ||  _update.monthlyincome=='null' ">-</div>
+											 
+										</dd>
+										  
+										<hr>
+										
+										<dt><strong>திருமண நிலை  <br> Marital status </strong></dt>
+										<dd>
+											{{_update.marriedstatus }}
+											 
+										</dd>
+										<hr>
+									</dl>
+									
+								</div>
+
+								<div id="passwordTab" class="profile-edit tab-pane fade in" ng-class="{ active:tab===2 }">
+									<h2 class="heading-md">Manage your Family Details</h2>
+									<p>Family Details</p>
+									<br>
+									<dl class="dl-horizontal">
+										<dt><strong>தந்தை பெயர் <br> Father Name </strong></dt>
+										<dd>
+											 <div ng-if="_update.fathername!=null && _update.fathername!='' && _update.fathername!='null' ">{{_update.fathername}}</div>
+											 <div ng-if="_update.fathername==null || _update.fathername=='' || _update.fathername=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>தந்தை தொழில் <br> Father Occupation</strong></dt>
+										<dd>
+											 <div ng-if="_update.fatheroccupation!=null && _update.fatheroccupation!='' && _update.fatheroccupation!='null' ">{{_update.fatheroccupation}}</div>
+											 <div ng-if="_update.fatheroccupation==null || _update.fatheroccupation=='' || _update.fatheroccupation=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>சொந்த ஊர்(தற்போது இருப்பிடம்) <br> Native Place * </strong></dt>
+										<dd>
+ 											  <div ng-if="_update.nativeplace!=null && _update.nativeplace!='' && _update.nativeplace!='null' ">{{_update.nativeplace}}</div>
+											 <div ng-if="_update.nativeplace==null || _update.nativeplace=='' || _update.nativeplace=='null' "> - </div>
+										</dd>										
+										<hr>
+										<dt><strong>அம்மா பெயர்<br> Mother Name </strong></dt>
+										<dd>
+ 											 <div ng-if="_update.mothername!=null && _update.mothername!='' && _update.mothername!='null' ">{{_update.mothername}}</div>
+											 <div ng-if="_update.mothername==null || _update.mothername=='' || _update.mothername=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>சொத்துக்கள் / Assets </strong></dt>
+										<dd>
+ 											  <div ng-if="_update.assets!=null && _update.assets!='' && _update.assets!='null' ">{{_update.assets}}</div>
+											 <div ng-if="_update.assets==null || _update.assets=='' || _update.assets=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>உங்களுக்கு எத்தனை சகோதரர்கள்<br>How many brothers</strong></dt>
+										<dd>
+											{{_update.brother }}
+											 
+										</dd>
+										<hr>
+										<dt><strong>எத்தனை சகோதரர்கள் திருமணம் நடந்தது உள்ளன <br>How many are brothers got married </strong></dt>
+										<dd>
+											{{_update.marriedbrothers }}
+											 
+										</dd>
+										<hr>
+										<dt><strong>உங்களுக்கு எத்தனை சகோதரிகள் <br>How many sisters </strong></dt>
+										<dd>
+											{{_update.sister }}
+											 
+										</dd>
+										<hr>
+										
+										<dt><strong>எத்தனை சகோதரிகள் திருமணம் நடந்தது உள்ளன<br>How many are sisters got married </strong></dt>
+										<dd>
+											{{_update.marriedsister }}
+											 
+										</dd>
+										<hr>
+										
+										<dt><strong>குலதெயிவம் <br> Kulateyivam</strong></dt>
+										<dd>
+ 											  <div ng-if="_update.kulatheivam!=null && _update.kulatheivam!='' && _update.kulatheivam!='null' ">{{_update.kulatheivam}}</div>
+											 <div ng-if="_update.kulatheivam==null || _update.kulatheivam=='' || _update.kulatheivam=='null' "> - </div>
+										</dd>
+										<hr>
+										
+									
+									</dl>
+								</div>
+
+								<div id="payment" class="profile-edit tab-pane fade in" ng-class="{ active:tab===3 }">
+									<h2 class="heading-md">Manage your Contact Details</h2>
+									<p>Below are the Contact Details for your account.</p>
+									<br>
+									<dl class="dl-horizontal">
+										<dt><strong>முதன்மை முகவரியை <br> Primary Address </strong></dt>
+										<dd>
+ 											  <div ng-if="_update.addressone!=null && _update.addressone!='' && _update.addressone!='null' ">{{_update.addressone}}</div>
+											 <div ng-if="_update.addressone==null || _update.addressone=='' || _update.addressone=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>இரண்டாம் முகவரி<br> Secondary Address</strong></dt>
+										<dd>
+ 											  <div ng-if="_update.addresstwo!=null && _update.addresstwo!='' && _update.addresstwo!='null' ">{{_update.addresstwo}}</div>
+											 <div ng-if="_update.addresstwo==null || _update.addresstwo=='' || _update.addresstwo=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>நகரம் / City </strong></dt>
+										<dd>
+ 											<div ng-if="_update.city!=null && _update.city!='' && _update.city!='null' ">{{_update.city}}</div>
+											 <div ng-if="_update.city==null || _update.city=='' || _update.city=='null' "> - </div> 
+										</dd>
+										<hr>
+										<dt><strong>தொடர்பு எண் <br> Contact Number </strong></dt>
+										<dd>
+ 											 <div ng-if="_update.contactno!=null && _update.contactno!='' && _update.contactno!='null' ">{{_update.contactno}}</div>
+											 <div ng-if="_update.contactno==null || _update.contactno=='' || _update.contactno=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>அலைபேசி எண் <br> Mobile No. </strong></dt>
+										<dd>
+ 											 <div ng-if="_update.mobileno!=null && _update.mobileno!='' && _update.mobileno!='null' ">{{_update.mobileno}}</div>
+											 <div ng-if="_update.mobileno==null || _update.mobileno=='' || _update.mobileno=='null' "> - </div>
+										</dd>
+										<hr>
+									
+									
+									</dl>
+								</div>
+
+								<div id="settings" class="profile-edit tab-pane fade in" ng-class="{ active:tab===4 }">
+									<h2 class="heading-md">Manage your horoscope Details.</h2>
+									<p>Below are the horoscope Details you may manage.</p>
+									<br>
+									<dl class="dl-horizontal">
+										<dt><strong>நட்சத்திர / Star</strong></dt>
+										<dd>
+											{{_update.star}}
+											 
+										</dd>
+										<hr>
+										<dt><strong>ராசி / Rasi</strong></dt>
+										<dd>
+											{{_update.rasi}}
+											 
+										</dd>
+										<dt ><strong>பாதம்</strong></dt>
+											<dd><div ng-if="_update.patham!=null && _update.patham!='' && _update.patham!='null' ">{{_update.patham}}</div>
+											<div ng-if="_update.patham==null || _update.patham=='' || _update.patham=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>லக்கனம் / Lagnam </strong></dt>
+										<dd>
+											{{_update.lagnam}}
+											 
+										</dd>
+										<hr>
+										<dt><strong>திசை இருப்பு<br>Direction Inventory </strong></dt>
+										<dd>
+											 {{_update.dhishaiiruphu }} &nbsp;&nbsp;&nbsp;  {{_update.year_month_date }}
+											 
+										</dd>
+										<hr> 
+ 										
+										<dt><strong>ஜாதக பதிவேற்றம் <br>Upload Horoscope </strong></dt>
+										<dd>
+											<a href="././OpenFile?r1=serverpath&r2={{_update.document }}" target="_blank" style="color: #72c02c;">Click here to view document</a> 
+											 
+										</dd>
+										<hr>
+										
+										<div class="row"> 
+										<section class="col-md-6">
+											<table >
+										 			<tr>
+										 				<td><input type="text" class="tbl"  readonly value="{{_update.r1 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.r2 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.r3 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.r4 }}"></input></td>
+										 			</tr>
+										 			<tr><td><input type="text" class="tbl" readonly value="{{_update.r5 }}"></input></td>
+										 				<td colspan="2" rowspan="2" style="text-align: center;"><b>ராசி / Rasi</b></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.r6 }}"></input></td>
+										 			</tr>
+										 			<tr><td><input type="text" class="tbl" readonly value="{{_update.r7 }}"></input></td>
+										 				
+										 				<td><input type="text" class="tbl" readonly value="{{_update.r8 }}"></input></td>
+										 			</tr>
+										 			<tr><td><input type="text" class="tbl" readonly value="{{_update.r9 }}"></input></td>
+										 				<td><input type="text" class="tbl"  readonly value="{{_update.r10 }}"></input></td>
+										 				<td><input type="text" class="tbl"  readonly value="{{_update.r11 }}"></input></td>
+										 				<td><input type="text" class="tbl"  readonly value="{{_update.r12 }}"></input></td>
+										 			</tr>
+									 			
+									 			</table>
+									 			</section>
+									 			<section class="col-md-6">
+									 			<table >
+										 			<tr>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a1 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a2 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a3 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a4 }}"></input></td>
+										 			</tr>
+										 			<tr><td><input type="text" class="tbl" readonly value="{{_update.a5 }}"></input></td>
+										 				<td colspan="2" rowspan="2" style="text-align: center;"><b>அம்சம்  / Amsam</b></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a6 }}"></input></td>
+										 			</tr>
+										 			<tr><td><input type="text" class="tbl" readonly value="{{_update.a7 }}"></input></td>
+										 				
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a8 }}"></input></td>
+										 			</tr>
+										 			<tr><td><input type="text" class="tbl" readonly value="{{_update.a9 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a10 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a11 }}"></input></td>
+										 				<td><input type="text" class="tbl" readonly value="{{_update.a12 }}"></input></td>
+										 			</tr>
+									 			
+									 			</table>
+									 			</section>
+									</div>
+									
+									</dl>
+								</div>
+								
+								<div id="settings" class="profile-edit tab-pane fade in" ng-class="{ active:tab===5 }">
+									<h2 class="heading-md">Manage your other Details.</h2>
+									<p>Below are the Other Details you may manage.</p>
+									<br>
+									<dl class="dl-horizontal">
+										<dt><strong>பாஸ்போர்ட் அளவு புகைப்படம்<br> Passport Size Photo</strong></dt>
+										<dd>
+											<a href="././OpenFile?r1=serverpath&r2={{_update.photo }}" target="_blank" style="color: #72c02c;">Click here to view photo</a>
+											 
+										</dd>
+										<hr>
+										<dt><strong>எதிர்பார்ப்பு<br> Expectation</strong></dt>
+										<dd>
+ 											<dd><div ng-if="_update.expectation!=null && _update.expectation!='' && _update.expectation!='null' ">{{_update.expectation}}</div>
+											<div ng-if="_update.expectation==null || _update.expectation=='' || _update.expectation=='null' "> - </div>
+											 
+										</dd>
+										<hr>
+										<dt><strong>சிறப்பு வழக்கு <br> specialcase </strong></dt>
+										<dd>
+ 											 <dd><div ng-if="_update.specialcase!=null && _update.specialcase!='' && _update.specialcase!='null' ">{{_update.specialcase}}</div>
+											<div ng-if="_update.specialcase==null || _update.specialcase=='' || _update.specialcase=='null' "> - </div>
+										</dd>
+										<hr>
+										<dt><strong>மின்னஞ்சல் / Email Id </strong></dt>
+										<dd>
+											 {{_update.emailid }}  
+											 
+										</dd>
+										<hr>
+										<dt><strong>திருமணம் யாருக்கு <br>Matrimony Profile for </strong></dt>
+										<dd>
+ 											 <dd><div ng-if="_update.registeredby!=null && _update.registeredby!='' && _update.registeredby!='null' ">{{_update.registeredby}}</div>
+											<div ng-if="_update.registeredby==null || _update.registeredby=='' || _update.registeredby=='null' "> - </div>
+										</dd>
+										<hr>
+										
+										<dt><strong>பயனர் பெயர் <br> User Name </strong></dt>
+										<dd>
+											{{_update.username }}
+ 											 
+										</dd>
+										<!-- <hr>
+										<dt><strong>கடவுச்சொல்<br>Password </strong></dt>
+										<dd>
+											{{_update.password }}
+											 
+										</dd> -->
+										<hr>  
+									</dl>
+								</div>
+							</div>
+							<div class="row pull-right" style="margin-top: 30px;">
+   									<button   class="btn-u"
+										ng-click="updateRequest()">Update Request</button>
+ 							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End Profile Content -->
+			</div><!--/end row-->
+			<div data-ads></div> 
+		</div>
+		<!--=== End Profile ===-->

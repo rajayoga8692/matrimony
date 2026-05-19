@@ -1,0 +1,152 @@
+
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left">VIP Profile</h1>
+	    <a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+
+	</div>
+</div>
+<!-- Left Bordered Funny Boxes -->
+<div class="container content-sm" ng-controller="searchvip">
+	<form class="form-horizontal" novalidate="novalidate">
+		<div class="row">
+			<div class="shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2"
+					style="padding: 60px">
+					<div class="col-md-offset-3 col-md-5">
+						<input type="text" ng-model="vipid" class="form-control"
+							placeholder="VIP ID">
+					</div>
+					<div class="col-md-3">
+						<button class="btn-u btn-u-purple" type="button"
+							ng-click="searchVip()">Search</button>
+							<button class="btn-u btn-info" type="button"
+							ng-click="viewVip()">View</button>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<div class="container" ng-show="insert">
+		<div class="row" ng-repeat="personal in personaldata">
+			<div class="col-md-12  toppad">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">{{personal.name}}</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-lg-3 " align="center">
+								<img src="./OpenFile?r1=serverpath&r2={{personal.imagepath}}" style="width: 150px;height: 150px" >
+							</div>
+ 
+							<div class=" col-md-9 col-lg-9 ">
+								<table class="table table-user-information">
+									<tbody>
+										<tr>
+											<td>Dateofbirth:</td>
+											<td>{{personal.dateofbirth}}</td>
+										</tr>
+										<tr>
+											<td>Gender:</td>
+											<td>{{personal.gender}}</td>
+										</tr>
+										<tr>
+											<td>Complexion:</td>
+											<td>{{personal.complexion}}</td>
+										</tr>
+
+										<tr>
+										<tr>
+											<td>Heightcm</td>
+											<td>{{personal.heightcm}}</td>
+										</tr>
+										<tr>
+											<td>Education</td>
+											<td>{{personal.education}}</td>
+										</tr>
+ 										<tr>
+											<td>Marriedstatus</td>
+											<td>{{personal.marriedstatus}}</td>
+										</tr>
+										<tr>
+											<td>Monthlyincome:</td>
+											<td>{{personal.monthlyincome}}</td>
+										</tr>
+										<tr>
+											<td>Workingplace:</td>
+											<td>{{personal.workingplace}}</td>
+										</tr>
+										<tr>
+											<td>Occupation:</td>
+											<td>{{personal.occupation}}</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div class="col-md-8"
+									style="float: right; margin-top: 2%; right: 34%;">
+									<!-- <input  type="file"  class="imgupload" style="margin-bottom: 2%;" name="file[]" accept="image/*" multiple ng-required="true"/> -->
+									<!-- <input type="file" id="file" name="file" multiple
+            onchange="angular.element(this).scope().getFileDetails(this)" /> -->
+									<input type="file" ng-model="imgupload"
+										class="imgupload cropit-image-input"
+										style="margin-bottom: 2%;" name="file[]" accept="image/*"
+										multiple ng-required="true" />
+									<!-- <div id="addfield"></div>
+							<a class="addfields btn btn-primary" ng-click="addimg()">Add fields</a> -->
+								</div>
+
+								<!-- <a href="#" class="btn btn-primary">My Sales Performance</a>
+                  <a href="#" class="btn btn-primary">Team Sales Performance</a> -->
+							</div>
+						</div>
+					</div>
+					<div style="margin-left: 27%;">
+						<button type="button" class="btn btn-success" ng-click="uploads(personal.id)">Upload</button>
+					</div>
+					<br>
+					 
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="  panel panel-red margin-bottom-40"  ng-show="view">
+				<div class="  panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-user"></i> VIP Profile
+					</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Name</th>
+								<th>Register No</th>
+								<th>Image</th>
+ 								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody> 
+							<tr ng-repeat="gallerylist in gallerylist">
+								<td>{{$index+1}}</td>
+								<td>{{gallerylist.name}}</td>
+								<td>{{gallerylist.registerno}}</td>
+								<td><img src="./OpenFile?r1=serverpath&r2={{gallerylist.imagepath}}" style="width: 100px;height: 100px" ></td>
+ 								 
+								<td><i class="icon-custom icon-sm icon-bg-red  fa fa-trash-o" aria-hidden="true" ng-click="deleteVIP(gallerylist)"></i></td>  
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div> 
+
+
+
+	<!-- End Left Bordered Funny Boxes -->
+</div>
+<!--/container-->

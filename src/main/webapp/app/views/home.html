@@ -1,0 +1,26 @@
+<!-- <div class="row">
+	<img src="images/Happy New year 2020.jpg">
+	<input type="text" ng-model="name">
+ </div>       -->
+<style>
+.textalign{
+  margin-top:10px;
+ }
+</style>
+ 
+<div class="container content" ng-controller="homecontroller">
+	<div class="row">   
+		<div class="col-md-offset-2 col-md-10"  >     
+			<img class="img-responsive"  src="images/{{image}}.jpg"  style="width:500px;height:500px">        
+		</div>   
+	</div> 
+	<div class="row">        
+		<div class="col-md-offset-3 col-md-4 textalign" style="margin-top:10px;">   
+			<input type="text" ng-model="name" class="form-control"> 
+ 		</div>  
+ 		<div class=" col-md-3 textalign" >
+  		<a type="button" class="btn btn-success" href="#/happynewyear/{{name}}/{{image}}">Share </a>
+ 		</div>
+  	</div>
+</div> 
+   

@@ -1,0 +1,58 @@
+<style>
+     .rasi{
+	     font-style: italic;
+	    color: coral;
+	    padding-right:40px;
+    }
+     .tbl {
+		    
+		    height: 80px;
+		    width: 115px;
+		    text-align:center
+    }
+ </style>
+<div ng-controller="paidmemberctrl">
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left"><i class="fa fa-user"></i> Welcome, {{user.name}}</h1>
+	<a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+	</div>
+</div>
+<div class="container content" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+
+		<div class="row" >
+					<!--Basic Table-->
+					<div class="panel panel-green margin-bottom-40">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="fa fa-tasks"></i>Paid Member List</h3>
+						</div>
+						<div class="panel-body"> 
+							<button class="btn btn-success btn-xs pull-right" ng-click="reload()"><i class="glyphicon glyphicon-refresh"></i> Reload Data</button>
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Sl.No.</th>
+									<th>Name</th>
+ 									<th>Registration ID</th>
+									<th>Registration Number</th>
+ 									<th>Amount(Rs.)</th>
+ 									<th>Plan name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="pd in paidmemberlist">
+									<td>{{$index+1}}</td>
+									<td>{{pd.name}}</td>
+ 									<td>{{pd.registerid}}</td>  
+									<td>{{pd.registerno}}</td>
+									<td>{{pd.amount}}</td>  
+ 									<td>{{pd.planname}}</td>
+ 								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--End Basic Table-->
+</div>
+ </div>
+</div>

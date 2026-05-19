@@ -1,0 +1,170 @@
+<div ng-controller="adminctrl">
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left"><i class="fa fa-user"></i> Welcome, {{user.name}}</h1>
+	</div>
+</div>
+<div class="container content" >
+
+		<div class="col-md-7 shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+					<h2>Members Settings</h2><br>
+						<ul class="list-inline badge-lists badge-box-v2 margin-bottom-30">
+							<li>
+								<a href="#/newprofile"><i class="fa fa-user-plus"></i>New Profiles</a>
+								<span class="badge badge-red rounded-x">{{count.pending}}</span>
+							</li>
+							<li>
+								<a  href="#/updaterequest"><i class="fa fa-user"></i>Update Request Profiles</a>
+								<span class="badge badge-blue">{{counts.updaterequestcount}}</span>
+							</li>
+							<li>  
+								<a  href="#/approveprofile"><i class="fa fa-thumbs-o-up"></i>Approved Profiles</a>
+								<span class="badge badge-green rounded-x">{{count.approved}}</span>
+							</li>
+							<li >
+								<a  href="#/deactiveprofile"><i class="fa fa-user-times"></i>Deactivated Profile</a>
+								<span class="badge badge-green rounded-x">{{count.deapproved}}</span>
+							</li>  
+						</ul>
+				</div>  
+		</div>
+		<div class="col-md-5 shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+				<h2>Payment Plan</h2><br>
+					<ul class="list-inline badge-lists badge-box-v2 margin-bottom-30">
+							<li>
+								<a href="#/salesreport"><i class="fa fa-flag"></i>Sales Reports</a>
+ 							</li>
+ 								<li> 
+								<a  href="#/memberviewedhistory"><i class="fa fa-cog"></i>Member View History</a>
+ 							</li>
+							<li>
+								<a  href="#/assignmember"><i class="fa fa-cog"></i>Assign Plan</a>
+ 							</li>
+							
+						</ul> 
+				</div>
+		</div>  
+		
+		<div class="col-md-7 shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+					<h2>Members Report </h2><br>
+						<ul class="list-inline badge-lists badge-box-v2 margin-bottom-30">
+							<li>
+								<a href="#/newprofile"><i class="fa fa-envelope"></i>Members Report List</a>
+								<span class="badge badge-red rounded-x">{{count.pending}}</span>
+							</li>
+							<li>
+								<a  href="#/paidmemberlist"><i class="fa fa-cog"></i>Paid member List</a>
+								<span class="badge badge-blue">7</span>
+							</li>  
+							<!-- <li>
+								<a  href="#"><i class="fa fa-gift"></i>Print members</a>
+								<span class="badge badge-green rounded-x"></span>
+							</li> --> 
+							<li>
+								<a  href="#/membershipplan"><i class="fa fa-cog"></i>Member plan</a>
+								<span class="badge badge-green rounded-x">{{counts.plancount}}</span>
+							</li>
+							<li>
+								<a  href="#/bankdetails"><i class="fa fa-university"></i>Bank  Info</a>
+								<span class="badge badge-green rounded-x">{{counts.plancount}}</span>
+							</li>
+							
+						</ul> 
+				</div>
+		</div>
+		<!-- <div class="col-md-5 shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+				<h2>Admin Activities</h2><br>
+					<ul class="list-inline badge-lists badge-box-v2 margin-bottom-30">
+							<li>
+								<a href="#/newprofile"><i class="fa fa-envelope"></i>Staff Login History</a>
+								<span class="badge badge-red rounded-x">{{count.pending}}</span>
+							</li>
+							<li>
+								<a  href="#"><i class="fa fa-cog"></i>Staffs Administration</a>
+								<span class="badge badge-blue">7</span>
+							</li>
+							<li >
+								<a  href="#"><i class="fa fa-gift"></i>Print History</a>
+								<span class="badge badge-green rounded-x">{{count.approved}}</span>
+							</li>
+						</ul>
+				</div>
+		</div> -->
+		
+		<div class="col-md-5 shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+					<h2>Basic Settings</h2><br>
+						<ul class="list-inline badge-lists badge-box-v2 margin-bottom-30">
+							 
+							<li>  
+								<a  href="#/city"><i class="fa fa-cog"></i>District List </a>
+								<span class="badge badge-blue">{{counts.districtcount}}</span>
+							</li>
+							<li> 
+								<a  href="#/subcaste"><i class="fa fa-gift"></i>Subcaste </a>
+								<span class="badge badge-green rounded-x">{{counts.subcastecount}}</span>
+							</li>
+							<li> 
+								<a  href="#/caddress"><i class="fa fa-gift"></i>Contact Address</a>
+ 							</li>
+ 							<li>
+								<a  href="#/vipprofile"><i class="fa fa-cog"></i>Vip Profile</a>
+								 <span class="badge badge-blue">{{counts.vipprofilecount}} </span> 
+							</li>  
+							
+						</ul>
+				</div>
+		</div>
+		<!-- <div class="col-md-5 shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+				<h2>Advertisement</h2><br>
+					<ul class="list-inline badge-lists badge-box-v2 margin-bottom-30">
+							<li>
+								<a href="#/newprofile"><i class="fa fa-envelope"></i>Home page ads</a>
+								<span class="badge badge-red rounded-x">{{count.pending}}</span>
+							</li>
+							
+							<li>
+								<a  href="#"><i class="fa fa-cog"></i>Search page ads</a>
+								<span class="badge badge-blue">7</span>
+							</li>
+						 
+						</ul>
+				</div>
+		</div> -->
+		
+		
+		<div class="col-md-7 shadow-wrapper">
+				<div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+					<h2>Additional Settings</h2><br>
+						<ul class="list-inline badge-lists badge-box-v2 margin-bottom-30">
+							<li>
+								<a href="#/country"><i class="fa fa-flag"></i>Country List</a>
+								<span class="badge badge-red rounded-x">2</span> 
+							</li>
+							<li>  
+								<a  href="#/job"><i class="fa fa-institution"></i>Job List</a>
+								<span class="badge badge-blue">{{counts.districtcount}}</span>
+							</li>
+							<li> 
+								<a  href="#/workplace"><i class="fa fa-gift"></i>Working Place</a>
+								<span class="badge badge-green rounded-x">{{counts.subcastecount}}</span>
+							</li>
+							<li> 
+								<a  href="#/residence"><i class="fa fa-gift"></i>Residence</a>
+								<span class="badge badge-green rounded-x">{{counts.subcastecount}}</span>
+							</li>
+							<li> 
+								<a  href="#/succestory"><i class="fa fa-check"></i>Success Story</a>
+								<span class="badge badge-green rounded-x">{{counts.subcastecount}}</span>
+							</li>
+						</ul>
+				</div>
+		</div>
+		  
+</div>
+</div>

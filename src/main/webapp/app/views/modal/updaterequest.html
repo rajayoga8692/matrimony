@@ -1,0 +1,66 @@
+<link href="./assets/css/sky-forms.css" rel="stylesheet">
+<link href="./assets/css/custom-sky-forms.css" rel="stylesheet"> 
+ 
+ 
+   <style>
+    @media print {
+    body * {
+        visibility: hidden;
+    }
+    #print-content * {
+        visibility: visible;
+    }
+    .modal{
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        min-height:550px
+    }
+}
+    
+    </style>
+    <div id="print-content">   
+    
+<div ng-controller="profilectrl">
+ <form   class="sky-form">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="ok()"  data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel4">Update Request</h4>
+  				    
+			</div> 
+			<div class="modal-body" >
+				<div class="alert alert-success" ng-show="success" style="margin-top: 5px;"> 
+		 	             Your request submitted successfully.Admin will contact soon.
+			        </div>
+					<div class="alert alert-danger" ng-show="error">
+						There was a problem . Please try again. Please contact admin.<br />
+					</div>
+				<div class="row">  
+					<div class="col-md-12">   
+                          		<label class="col-sm-2 control-label" for="expetation">Comments
+								</label>
+								<div class="col-sm-10"> 
+									<label class="textarea"> <textarea type="text" row="12"
+											maxlength="1000" name="comments" placeholder="Name,phoneno,photo,caste"
+											ng-model="comments"></textarea> <b
+										class="tooltip tooltip-bottom-right">Needed to enter the
+											Comments.</b>
+									</label>
+								</div>
+                          
+                           
+					</div> 
+ 				</div> 
+			</div>  
+			 
+			<div class="modal-footer">
+				<button type="button" class="btn-u btn-u-default"
+					data-dismiss="modal" ng-click="ok()" >Close</button> 
+				<button type="button" class="btn-u btn-u-primary" ng-click="saveRequest()" >Save</button>
+			</div>
+  </form>   
+  </div>
+ </div> 

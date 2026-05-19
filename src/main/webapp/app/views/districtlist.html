@@ -1,0 +1,82 @@
+ 
+    <div class="breadcrumbs">
+		<div class="container">
+			<h1 class="pull-left"> நகரம் / City</h1>
+			 
+		</div> 
+	</div>
+ <!-- Left Bordered Funny Boxes -->
+    <div class="container content-sm" ng-controller="districtctrl">
+    <form class="form-horizontal" novalidate="novalidate">
+        <div class="row">
+               <div class="shadow-wrapper">
+                   <div class="tag-box tag-box-v1 box-shadow shadow-effect-2" style=" padding: 60px">
+                         <div class="col-md-offset-3 col-md-5"> 
+                         	<input type="text" ng-model="districtnamenew" class="form-control" placeholder="City name">  
+                          </div>
+                          <div class="col-md-3"> 
+                          	<button class="btn-u btn-u-purple"  type="button" ng-click="saveDistrict()">Submit</button> 
+                          </div>
+                   </div>
+               </div> 
+ 	     </div>  
+ 	     <div class="row">
+ 	     	<div class="  panel panel-red margin-bottom-40">
+                    <div class="  panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-user"></i> நகரம்  / City</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>City Name</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="districtlist in districtlist">
+                                     <td>{{$index+1}}</td>
+                                    <td>{{districtlist.districtname}}</td>
+                                    <td ><i class="fa fa-pencil" ng-click="editcity(districtlist)"></i></td> 
+                                    <td><i class="fa fa-trash-o" aria-hidden="true" ng-click="deletecity(districtlist)"></i></td>
+                                  </tr>
+                              </tbody>
+                        </table>
+                    </div>
+                </div>
+ 	     </div>
+     </form>
+     
+     
+     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-offset-3 col-md-5"> 
+                         	<input type="text" ng-model="districtname" class="form-control" placeholder="City name">
+                         	<input type="hidden" ng-model="districtid" class="form-control" placeholder="City name">  
+                          </div>
+                          <div class="col-md-3"> 
+                          	<button class="btn-u btn-u-purple" value="{{districtname}}" type="button" ng-click="updateDistrict(districtlist)">Update</button> 
+                          </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+     
+     
+    <!-- End Left Bordered Funny Boxes -->
+  </div><!--/container-->
+   

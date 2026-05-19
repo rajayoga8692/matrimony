@@ -1,0 +1,170 @@
+
+<style>
+/*Contact Pages
+------------------------------------*/
+.map {
+	width: 100%;
+	height: 350px;
+	border-top: solid 1px #eee;
+	border-bottom: solid 1px #eee;
+}
+
+/* important! bootstrap sets max-width on img to 100% which conflicts with google map canvas*/
+.map img {
+	max-width: none;
+}
+
+.map-box {
+	height: 250px;
+}
+
+.map-box-space {
+	margin-top: 15px;
+}
+
+.map-box-space1 {
+	margin-top: 7px;
+}
+
+/*Custom Sky Forms (Advanced Contacts Page)*/
+.sky-changes-3.sky-form, .sky-changes-3.sky-form footer {
+	border: none;
+}
+
+.sky-changes-3.sky-form footer, .sky-changes-3.sky-form fieldset {
+	padding: 0;
+	background: none;
+}
+.sky-space-20{
+ margin-bottom: 20px; 
+
+}
+</style>
+
+<!--=== Content Part ===-->
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left"> தொடர்புக்கு / Our Contacts</h1>
+		 
+	</div>
+</div>
+<div class="container content" ng-controller="contactmail">
+	<div class="row margin-bottom-30">
+		<div class="col-md-8 mb-margin-bottom-30">
+ 			
+ 
+                <form name="sentMessage" id="contactForm"  ng-submit="submitform(sentMessage.$valid)">
+ 
+				<fieldset class="no-padding">
+					<label>Name <span class="color-red">*</span></label>
+					<div class="row sky-space-20">
+						<div class="col-md-7 col-md-offset-0">
+							<div>
+							 <input type="text" class="form-control" ng-model="con.name" placeholder="Name" id="name" required data-validation-required-message="Please enter your name." ng-required="true">
+
+							</div>
+						</div>
+					</div>
+
+					<label>Email <span class="color-red">*</span></label>
+					<div class="row sky-space-20">
+						<div class="col-md-7 col-md-offset-0">
+							<div>
+							   <input type="email" class="form-control" ng-model="con.email" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address." ng-required="true">							
+							</div>
+						</div>
+					</div>
+
+					<label>Message <span class="color-red">*</span></label>
+					<div class="row sky-space-20" style="   "> 
+						<div class="col-md-11 col-md-offset-0">
+							<div>
+							     <textarea rows="5" class="form-control" ng-model="con.message"  placeholder="Message" id="message" required data-validation-required-message="Please enter a message." ng-required="true"></textarea>
+ 							</div>
+						</div>
+					</div>
+
+					<p >
+						<button type="submit" class="btn-u">Send Message</button>
+						
+					</p>
+				</fieldset>
+
+
+			</form>
+		</div>
+		<!--/col-md-9-->
+
+		<div class="col-md-4">
+			<!-- Google Map -->
+			<div id="map" class="map map-box map-box-space1 margin-bottom-40">
+			</div>
+			<!---/map-->
+			<!-- End Google Map -->
+
+			<!-- Contacts -->
+			<div class="headline">
+				<h2>Contacts</h2>  
+ 			</div> 
+				<ul class="list-unstyled who margin-bottom-30">
+						<li><a href="#"><i class="fa fa-map-marker"></i>{{contactlist.name}}<br>
+							{{contactlist.address}}<br>
+							 {{contactlist.city}} - {{contactlist.pincode}}.
+						 </a>
+						 </li>
+						
+						<li><a href="#"><i class="fa fa-phone"></i>{{contactlist.phoneno}}</a></li>
+						<li><a href="#"><i class="fa fa-envelope"></i> {{contactlist.emailid}}</a></li>
+ 					</ul>
+
+					<!-- Business Hours -->
+					<div class="headline"><h2>Business Hours</h2></div>
+					<ul class="list-unstyled margin-bottom-30">
+						<li><strong>Monday-Friday:</strong> 10am to 8pm</li>
+						<li><strong>Saturday:</strong> 11am to 3pm</li>
+						<li><strong>Sunday:</strong> Closed</li>
+					</ul>
+			 
+		</div>
+		<!--/col-md-3-->
+	</div>
+	<!--/row-->
+  <div data-ads></div>
+ 
+</div>
+ 
+      <div class="modal fade" id="processing" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Mail</h4>
+		      </div>
+		      <div class="modal-body">
+		        <b class="processtext">Mail Sending... Please wait...</b>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		  
+		
+		<div class="modal fade" id="faildprocessing" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Mail</h4>
+		      </div>
+		      <div class="modal-body">
+		        <b class="processtext">Mail Sending Faild</b>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+ 

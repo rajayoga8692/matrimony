@@ -1,0 +1,185 @@
+
+<link rel="stylesheet" href="./assets/css/sky-forms.css">
+<link rel="stylesheet" href="./assets/css/custom-sky-forms.css">
+
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left">Contact Details</h1>
+	    <a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+
+	</div>
+</div>
+
+<!-- Left Bordered Funny Boxes -->
+<div class="container content-sm" ng-controller="caddressctrl">
+	<form novalidate="novalidate" id="sky-form1" class="sky-form">
+		<header style="color:#666">Contact Address entry</header>
+
+		<fieldset>
+			<div class="row">
+
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-user"></i>
+						<input type="text" ng-model="name" placeholder="name">
+					</label>
+				</section>
+
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-user"></i>
+						<input type="text" ng-model="address" placeholder="Address">
+					</label>
+				</section>
+
+			</div>
+
+			<div class="row">
+				<section class="col col-6">
+					<label class="input"> <i
+						class="icon-append fa fa-briefcase"></i> <input type="text"
+						ng-model="city" placeholder="City">
+					</label>
+				</section>
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-envelope"></i>
+						<input type="text" ng-model="phoneno" placeholder="Phone no">
+					</label>
+				</section>
+
+			</div>
+			<div class="row">
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-envelope"></i>
+						<input type="text" ng-model="emailid" placeholder="Eamil id">
+					</label>
+				</section>
+				<section class="col col-6">
+					<label class="input"> <i class="icon-append fa fa-envelope"></i>
+						<input type="text" ng-model="pincode" placeholder="Pin Code">
+					</label>
+				</section>
+			</div>
+
+		</fieldset>
+
+		<footer>
+			<button type="submit" class="btn-u" ng-click="saveContact()">Submit</button>
+		</footer>
+	</form>
+	<br>
+	<div class="row">
+		<div class="  panel panel-red margin-bottom-40">
+			<div class="  panel-heading">
+				<h3 class="panel-title">
+					<i class="fa fa-user"></i> Contact Details Info
+				</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Address</th>
+							<th>City</th>
+							<th>Phone No</th>
+							<th>Email Id</th>
+							<th>Pin code</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="contactlist in contactlist">
+							<td>{{$index+1}}</td>
+							<td>{{contactlist.name}}</td>
+							<td>{{contactlist.address}}</td>
+							<td>{{contactlist.city}}</td>
+							<td>{{contactlist.phoneno}}</td>
+							<td>{{contactlist.emailid}}</td>
+							<td>{{contactlist.pincode}}</td>
+							<td><i class="fa fa-pencil"
+								ng-click="editContactinfo(contactlist)"></i></td>
+							<td><i class="fa fa-trash-o" aria-hidden="true"
+								ng-click="deleteContactInfo(contactlist)"></i></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="myModal" ng-show="mdlview" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form novalidate="novalidate"  class="sky-form">
+ 					<fieldset>
+						<div class="row">
+								<input type="hidden" ng-model="contactaddressid" placeholder="contactaddressid">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-user"></i>
+									<input type="text" ng-model="editname" placeholder="Enter the name">
+								</label>
+							</section>
+
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-user"></i>
+									<input type="text" ng-model="editaddress" placeholder="Enter the Address">
+								</label>
+							</section>
+
+						</div>
+
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i
+									class="icon-append fa fa-briefcase"></i> <input type="text"
+									ng-model="editcity" placeholder="Enter the City">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i
+									class="icon-append fa fa-envelope"></i> <input type="text"
+									ng-model="editphoneno" placeholder="Enter the Phone no">
+								</label>
+							</section>
+
+						</div>
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i
+									class="icon-append fa fa-envelope"></i> <input type="text"
+									ng-model="editemailid" placeholder="Enter the Eamil id">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i
+									class="icon-append fa fa-envelope"></i> <input type="text"
+									ng-model="editpincode" placeholder="Enter the Pin Code">
+								</label>
+							</section>
+						</div>
+
+					</fieldset>  
+					</form>
+				</div> 
+				<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      			  <button type="button" class="btn btn-primary" ng-click="updateContactInfo()">Save changes</button>  
+				</div>
+			</div>
+		</div>
+	</div>
+ 
+	<!-- End Left Bordered Funny Boxes -->
+</div>
+<!--/container-->

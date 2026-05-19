@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="./assets/plugins/dataTables/datatables.min.css">  
+ <style>
+     .rasi{
+	     font-style: italic;
+	    color: coral;
+	    padding-right:40px;
+    }
+     .tbl {
+		    
+		    height: 80px;
+		    width: 115px;
+		    text-align:center
+    }
+ </style> 
+<div ng-controller="memberviewhisctrl">
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left"><i class="fa fa-user"></i> Welcome, {{user.name}}</h1>
+		<a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+	</div>
+</div>
+<div class="container content" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+
+		<div class="row">
+
+			<div class="col-md-5 " > 
+				<form class="sky-form"> 
+					<div class="form-group row">
+						<label class="col-sm-3 col-form-label">Member Id</label>
+						<div class="col-sm-5"> 
+							<div class="input-group">
+								<input type="text" ng-model="memberid"
+									class="form-control" placeholder="Search for..."> <span
+									class="input-group-btn">
+									<button class="btn btn-primary" type="button"
+										ng-click="getViewedMember()">Get</button>
+								</span>
+							</div>
+						</div>   
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+		<div class="row" >
+				<table datatable="ng" class="table table-bordered">
+					<thead>   
+						<tr>
+							<th>Sl.No.</th>    
+							<th>Member Id</th>
+							<th>Member Name	</th>
+							<th>View Member Id</th>
+								<th>View Member Name</th>
+							<th>View Date Time</th>
+								<th>View Address</th>
+								<th>Contact No</th>
+						</tr>
+					</thead>
+					<tbody>    
+						<tr ng-repeat="pd in memberviewedhistory">
+							<td>{{$index+1}}</td>
+							<td>{{pd.memberid}}</td>
+							<td>{{pd.membername}}</td>
+							<td>{{pd.registerno}}</td>  
+							<td>{{pd.name}}</td>  
+							<td>{{pd.vieweddate}}</td>  
+							 <td>{{pd.addressone}}</td>
+							 <td>{{pd.contactno}}</td>
+						</tr>   
+					</tbody>
+			</table>
+ 	 </div>
+<!--  <ng-include src="'./app/views/registration.html'" add-variable="{'detailsObject': language}"></ng-include>
+ --></div>
+</div>

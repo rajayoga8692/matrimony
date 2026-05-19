@@ -1,0 +1,80 @@
+<style>
+.rasi {
+	font-style: italic;
+	color: coral;
+	padding-right: 40px;
+}
+
+.tbl {
+	height: 80px;
+	width: 115px;
+	text-align: center
+}
+</style>
+<div ng-controller="dprofilectrl">
+	<div class="breadcrumbs">
+		<div class="container">
+			<h1 class="pull-left">
+				<i class="fa fa-user"></i> Welcome, {{user.name}}
+			</h1>
+		</div>
+	</div>
+	<div class="container content"
+		cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+
+		<div class="row">  
+			<!--Basic Table-->
+			<div class="panel panel-green margin-bottom-40">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<i class="fa fa-tasks"></i>Deactive Profiles
+					</h3>
+				</div>  
+				<div class="panel-body">
+					
+					<button class="btn btn-success btn-xs pull-right"
+						ng-click="reload()">
+						<i class="glyphicon glyphicon-refresh"></i> Reload Data
+					</button>
+				</div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Sl.No.</th>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Registration ID</th>
+							<th>Registration Number</th>
+							<th>Sex</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="pd in pending" ng-show="nodata">
+							<td>{{$index+1}}</td>
+							<td>{{pd.name}}</td>
+							<td>{{getDate(pd.dateofbirth)}} - years old</td>
+							<td>{{pd.registerid}}</td>
+							<td>{{pd.registerno}}</span></td>
+							<td>{{pd.gender}}</td>
+							<td>
+								<button class="btn btn-primary btn-xs" 
+									ng-click="activate(pd.id,'A')">
+									  Active 
+								</button>
+								<button class="btn btn-danger btn-xs" 
+									ng-click="activate(pd.id,'T',pd.photo)">  
+									<i class="fa fa-trash-o"></i> Delete 
+								</button>
+							</td>
+						</tr>
+						<tr ng-show="!nodata" >
+							<td colspan="7" style="text-align: center;"><h4>No data found</h4></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+ 			<!--End Basic Table-->
+		</div>
+	</div>
+</div>

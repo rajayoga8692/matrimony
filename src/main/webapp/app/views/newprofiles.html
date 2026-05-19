@@ -1,0 +1,67 @@
+<style>
+     .rasi{
+	     font-style: italic;
+	    color: coral;
+	    padding-right:40px;
+    }
+     .tbl {
+		    
+		    height: 80px;
+		    width: 115px;
+		    text-align:center
+    }
+ </style>
+<div ng-controller="nprofilectrl">
+<div class="breadcrumbs">
+	<div class="container">
+		<h1 class="pull-left"><i class="fa fa-user"></i> Welcome, {{user.name}}</h1>
+			    <a  href="#/admin" class="btn btn-primary pull-right" style="margin-top: 10px;">Back</a>
+		
+	</div>
+</div>
+<div class="container content" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+
+		<div class="row" >
+					<!--Basic Table-->
+					<div class="panel panel-green margin-bottom-40">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="fa fa-tasks"></i>Pending Profiles</h3>
+						</div>
+						<div class="panel-body">
+							<button class="btn btn-success btn-xs pull-right" ng-click="reload()"><i class="glyphicon glyphicon-refresh"></i> Reload Data</button>
+						</div>  
+						<table class="table">
+							<thead>
+								<tr style="background-color:#A52A2A;border-top-left-radius:41px; border-top-right-radius:41px; color:#FFFFFF;" >
+								
+									<th>வ.எண்</th>
+									<th>பதிவு எண்</th>
+									<th>பெயர்</th>
+									<th>பாலினம்</th>									
+									<th>பிறந்த தேதி</th>
+									<th>கல்வி தகுதி</th>
+									<th>மேலும் பார்க்க</th>
+								</tr>
+							</thead>
+								<tbody>
+								<tr ng-repeat="pd in pending">
+									<td>{{$index+1}}</td>
+									<td>{{pd.registerid}}</td>
+									<td>{{pd.name}}</td>
+									<td>{{pd.gender}}</td>
+									<td>{{getDate(pd.dateofbirth)}} - years old</td>
+									<td>{{pd.education}}</td>   
+ 									<td>
+										<a class="btn btn-info btn-xs" href="#/confirmprofile/{{pd.id}}" ><i class="fa fa-share"></i> More Details</button>
+<!-- 									<button class="btn btn-danger btn-xs" ng-click="getModal(pd.id,'D')"><i class="fa fa-trash-o"></i> Edit</button>
+ --> 								</td>
+								</tr>
+							</tbody>   
+						</table>
+					</div>
+					<!--End Basic Table-->
+</div>
+ <!-- <ng-include src="'./app/views/registration.html'" add-variable="{'detailsObject': language}"></ng-include> -->
+
+</div>
+</div>
